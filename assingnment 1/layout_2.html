@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    body{
+        background-color: black;
+    }
+    #container{
+        width: 75%;
+        height: 700px;
+        background-color: white;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(12,1fr);
+        grid-template-rows: 170px  150px 150px 150px;
+        gap: 10px;
+        grid-template-areas: 
+        "a a a a a a a a a a a a"
+        "b b b b b b b c c c c c"
+        "b b b b b b b d d d d d"
+        "b b b b b b b e e e e e";
+    }
+    #container >div{
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+    }
+
+
+     .nav{
+         grid-area: a;
+         background-color: yellow;
+         margin-top: 10px;
+         font-size: 30px;
+
+     }
+     .box1{
+        grid-area: b;
+         background-color: red;
+
+     }
+     .box2{
+        grid-area: c;
+         background-color: rgb(13, 238, 24);
+         
+        }
+
+        .box3{
+            grid-area: d;
+            background-color: rgb(7, 247, 7);
+         
+        }
+        .box4{
+            grid-area: e;
+          background-color: rgb(14, 247, 72);
+        }
+        h1{
+            margin-left: 30px;
+        }
+       
+</style>
+</head>
+<body>
+    <div id="container">
+        <div class="nav"> <h1>Navigation</h1></div>
+        <div class="box1"><h1>LEFT BOX</h1></div>
+        <div class="box2"> <H1>RIGHT BOX 1</H1></div>
+        <div class="box3"> <h1>RIGHT BOX2</h1></div>
+        <div class="box4"><h1>RIGHT BOX 3</h1></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table ,tr,th{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+
+    <form >
+        <input id="item" type="text" placeholder="enter item">
+        <input id="qty" type="number" placeholder="enter qty">
+        <input type="button" value="add Task">
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>item</th>
+                <th>quentity</th>
+                <th>Delete item</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</body>
+</html>
+
+<script>
+     document.querySelector("form").addEventListener("submit",todolist)
+     var todoArr=[]
+     function todolist(event){
+         event.PreventDefault()
+         var item=document.querySelector("#item").value
+         var qty = document.querySelector("#qty").value
+        //  console.log(item,qty)
+         var tasklist ={ itemName: item ,itemQty:qty};
+         todoArr.push(tasklist)
+         console.log(todoArr)
+         createTable(todoArr);
+     }
+
+     function createTable(todoArr) {
+    console.log(todoArr);
+    //------------------------------------------------------
+    document.querySelector("tbody").innerHTML = "";
+    todoArr.map(function (elem) {
+      var tr = document.createElement("tr");
+
+      var td1 = document.createElement("td");
+      td1.textContent = elem.itemName;
+
+      var td2 = document.createElement("td");
+      td2.textContent = elem.itemQty;
+
+      var td3 = document.createElement("td");
+      td3.textContent = "Delete";
+
+      tr.append(td1, td2, td3);
+
+      document.querySelector("tbody").append(tr);
+      //------------------------------------------------
+    });
+  }
+ 
+
+</script>

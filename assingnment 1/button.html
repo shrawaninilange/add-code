@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            padding: 5px;
+            margin: 10px;
+             
+        }
+        button:nth-child(1){
+            background-color: blue;
+        }
+
+        button:nth-child(2){
+            background-color: blue;
+        }
+
+        button:nth-child(3){
+            background-color: blue;
+        }
+
+        button:nth-child(4){
+            background-color: blue;
+        }
+
+        button:nth-child(4){
+            background-color: rgb(144, 235, 70);
+        }
+
+        button:nth-child(5){
+            background-color: blue;
+        }
+
+        
+        button:nth-child(6){
+            background-color: blue;
+        }
+
+        
+
+
+    </style>
+</head>
+<body>
+    <!-- <button>Primery</button>
+    <button>Secondary</button>
+    <button>success</button>
+    <button>Danger</button>
+    <button>Warning</button>
+    <button>info</button>
+     -->
+
+     
+
+     
+<script>
+
+    var btn1 = document.createElement("button");
+    var btn2 = document.createElement("button");
+    var btn3 = document.createElement("button");
+    var btn4 = document.createElement("button");
+    var btn5 = document.createElement("button");
+    var btn5 = document.createElement("button");
+
+    btn1.textContent="primery";
+    btn2.textContent="Secondary";
+    btn3.textContent="success";
+    btn4.textContent="Danger";
+    btn5.textContent="Warning";
+    btn6.textContent="Info";
+    document.querySelector("body").append(btn1,btn2,btn3,btn4,btn5)
+  
+   var buttons =[
+       {name : "primery" , bgcolor: "blue"},
+       {name :Secondary , bgcolor: "gray"},
+       {name : success , bgcolor: "green"},
+       {name : Danger , bgcolor: "red"},
+       {name : primery , bgcolor: "yellow"},
+       {name : primery , bgcolor: "cyan"},
+   ]
+   buttons.map(function(ele){
+       var btn = document.createElement("button")
+        btn.textContent=ele.name
+        btn.style.backgroundColor=ele.bgcolor
+        document.querySelector("body").append(buttons)
+   })
+</script>
+
+
+
+
+</body>
+</html>

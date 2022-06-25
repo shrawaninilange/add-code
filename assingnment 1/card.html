@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+   body{
+       display: flex;
+       
+   }
+   div{
+       width: 250px;
+       padding: 10px;
+       background-color: whitesmoke;
+   }
+   h4{
+       padding: 0px;
+       font-size: 25px;
+       margin-left: -50px;
+       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   }
+   p{
+       margin-left: -60px;
+       background-color: rgb(168,165,172);
+       padding: 10px;
+       border-radius: 5px;
+       color: white;
+       font-weight: bold;
+       margin-top: -15px;
+   }
+   button{
+       margin-top: -50px;
+       padding: 10px;
+       border: 0px;
+       color: white;
+       font-weight: bold;
+       background-color: rgb(12, 183, 250);
+       margin-right: 0px;
+       margin-left: 10px;
+   }
+   img{
+       margin-top: 40px;
+
+   }
+
+      
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+<Script>
+    var box1 = document.createElement("div")
+
+    var box = document.createElement("div")
+
+    var image=document.createElement("img")
+   
+   image.setAttribute("src","https://via.placeholder.com/200")
+
+   var heading = document.createElement("h4")   
+   heading.textContent="Alice Liddla"
+
+
+   var p =document.createElement("p")
+   p.textContent="Alice is a freelancer web desinger and developer based in London .She is specialised in html5,css3,javascript ,bootstrap"
+
+
+   var button =document.createElement("button")
+   button.textContent="View Profile"
+   box1.append(image)
+   box.append(heading,p,button)
+   document.querySelector("body").append(box1,box)
+</Script>

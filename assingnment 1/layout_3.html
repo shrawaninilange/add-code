@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            /* background-color: black; */
+        }
+        #con{
+         display: grid;
+        width: 80%;
+        grid-template-columns: repeat(12,1fr);
+        grid-template-rows:  100px 300px;
+        background-color: white;
+        height: 550px;
+        margin: auto;
+        grid-template-areas: " a a a a a a a a a a a a"
+                            " x x x y y y z z z c c c ";
+                            gap: 30px;
+
+        }
+
+        #con > div{
+       
+        }
+        .nav{
+            grid-area: a;
+            background-color: blue;
+        }
+
+        .box{
+            grid-area: x;
+            background-color: red;
+
+        }
+
+
+
+        .box1{
+            grid-area: y;
+           background-color: blueviolet; 
+        }
+
+
+        .box2{
+            grid-area: z;
+            background-color: rgb(26, 165, 56); 
+        }
+
+
+        .box3{
+            grid-area: c;
+            background-color: aquamarine;
+             
+             
+        }
+
+
+        @media screen and (min-width :0px ) and (max-width : 320px) {
+            #con{
+                grid-template-rows: 30px   200px 200px 200px 200px ;
+                grid-template-areas: "a a a a a a a a  a a   "
+                                      "x x x x x x x x x x "
+                                      "y y y y x x x x x x "
+                                      "z z z z z z z z z z z"
+                                      "c c c c c c c c c c c ";
+            }
+            
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <div id="con">
+        <div class="nav"><h3>Navigation</h3></div>
+        <div class="box"><h3>A</h3></div>
+        <div  class="box1"><H3>B</H3></div>
+        <div  class="box2"><h3>C</h3></div>
+        <div class="box3"><h3>D</h3></div>
+    </div>
+    
+</body>
+</html>

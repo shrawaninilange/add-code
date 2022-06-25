@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+ body{
+        background-color: black;
+    }
+    #container{
+        width: 90%;
+        height: 700px;
+        background-color: white;
+        margin: auto;
+        display: grid;
+         
+        grid-template-columns: repeat(12,1fr);
+        grid-template-rows: 230px  300px;
+        gap: 10px;
+        grid-template-areas: 
+        "a a a a a a a a a a a a"
+        "b b b c c c d d d e e e"
+         
+    }
+    #container >div{   
+        margin-top: 60px;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+    }
+
+
+     .nav{
+         grid-area: a;
+         background-color: rgb(229, 255, 0);
+         margin-top: 10px;
+         font-size: 30px;
+
+     }
+     .box1{
+        grid-area: b;
+         background-color:rgb(247, 90, 17);
+
+     }
+     .box2{
+        grid-area: c;
+         background-color: rgb(17, 226, 28);
+         
+        }
+
+        .box3{
+            grid-area: d;
+            /* background-color: rgb(36, 20, 250); */
+            border: 1px solid red;
+         
+        }
+        .box4{
+            grid-area: e;
+          background-color: gray;
+        }
+        h1{
+            margin-left: 30px;
+        }
+
+        @media screen and (min-width : 0px) and (max-width :500px) {
+              #container{
+                   grid-template-rows: 100px 200px 200px 200px 200px;
+                   grid-template-areas: "a a a a a a a a a a a a"
+                                        "b b b b b b b b b b b b"
+                                        "c c c c c c c c c c c c"
+                                        "d d d d d d d d d d d d";
+              }
+              
+          }
+
+       
+          @media screen and (min-width : 500px) and (max-width :1300px) {
+              #container{
+                   grid-template-rows: 100px 200px 200px 200px 200px;
+                   grid-template-areas: "a a a a a a a a a a a a"
+                                        "b b b b b b d d d d d d"
+                                        "c c c c c c e e e e e e";
+              }
+              
+          }
+</style>
+</head>
+<body>
+    <div id="container">
+        <div class="nav"> <h1><img  width="100px" src="https://www.cricbuzz.com/images/cb_logo.svg" alt=""></h1></div>
+        <div class="box1"><h1>BOX 1</h1></div>
+        <div class="box2"> <H1>BOX 2</H1></div>
+        <div class="box3"> <h1> BOX 3</h1></div>
+        <div class="box4"><h1>BOX 4</h1></div>
+        <div class="box4"><h1><img src="https://www.cricbuzz.com/images/cb_logo.svg" alt=""></h1></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+         #container{
+             display: grid;
+             grid-template-columns: repeat(3,1fr);
+             grid-template-rows: repeat(3,150px);
+            
+             gap: 80px;
+        
+
+    }
+    #container >div{
+        border: 1px solid red;
+        border-radius: 30px;
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;;
+    }
+
+
+    @media screen and (min-width : 0px) and (max-width : 320) {
+        #container{
+            
+             grid-template-columns: repeat(1,1fr);
+             grid-template-rows: repeat(9,200px);
+            
+              
+        
+
+    }
+        
+    }
+    .rr{
+        display: flex;
+    }
+
+
+    @media screen and (min-width : 321px) and (max-width :720px) {
+              #container{
+                  grid-template-columns: repeat(2,1fr);
+                
+              }
+              h3{
+                  color: chartreuse;
+              }
+            }
+     </style>
+</head>
+<body>
+    <div id="container">
+        <div>
+            <div class="rr">
+                <p>dfhbg</p>
+                <h3>12</h3>
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem similique perspiciatis reiciendis. Perferendis, ex laborum modi id ullam excepturi quos culpa doloribus sint saepe minus placeat quia, velit quo amet.</p>
+            </div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+
+    </div>
+    
+</body>
+</html>

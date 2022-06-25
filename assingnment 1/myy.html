@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+             margin: 30px;
+        }
+        table ,tr,th{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <form action=""> 
+    <input id="item" type="text" placeholder="enter name"><br>
+    <input id="qty" type="text" placeholder="enter qty"><br>
+    <input id="submit" type="submit" placeholder="Add item"><br>
+</form>
+<table>
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+</body>
+</html>
+
+
+<script>
+    document.querySelector("form").addEventListener("submit",todlist)
+
+    window.addEventListener("load",function(){
+        createtable(todArr)
+    })
+      todArr=[]
+    function todlist(event){
+        event.preventDefault()
+        var item = document.getElementById("#item").value
+        var qty = document.getElementById("#qty").value
+
+        var itemlist={
+              itemName :item,
+              itemqty : qty,
+
+        }
+         todArr.push(itemlist)
+         console.log(todArr)
+         localStorage.setItem("todo5",JSON.stringify(todArr))
+    }
+
+
+
+
+    // function createtable(todArr){
+    //     document.querySelector("tbody").textContent=""
+
+
+        
+        
+
+    // })
+</script>

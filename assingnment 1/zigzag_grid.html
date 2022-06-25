@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            
+        }
+        #container{
+           
+            display: grid;
+            grid-template-columns: repeat(4,100px);
+            grid-template-rows: repeat(3,100px);
+            gap: 20px;
+            background-color: white;
+            height: 600px;
+            margin: auto;
+            padding-left: 470px;
+            margin-top: 200px;
+
+        }
+        #container >div {
+            background-color: teal;
+            display: grid;
+            grid-template-columns: repeat(4,100px);
+            grid-template-rows: repeat(3,100px);
+            gap: 20px;
+            
+          
+
+        }
+        #sec{
+            grid-area: 1/2/2/4;
+        }
+        #th{
+            grid-area: 2/1/3/3;
+        }
+        #thir{
+            grid-area: 3/3/4/5;
+        }
+
+    </style>
+</head>
+<body>
+  <div id="container">
+      <div></div>
+      <div id="sec"></div>
+      <div></div>
+      <div  id="th"></div>
+      <div ></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div id="thir"></div>
+      < 
+      
+  </div>
+
+</body>
+</html>
