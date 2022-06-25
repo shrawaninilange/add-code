@@ -1,0 +1,60 @@
+l <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script> 
+let arr = [1, 2, 3]; //this is how you create it
+
+arr.push();
+
+let arr2 = new Array(1, 2, 3); //this is how Js does it internally
+console.log("arr2:", arr2);
+
+function MyArray() {
+this.length = arguments.length;
+
+Object.defineProperty(this, "length", {
+writable: true,
+enumerable: false,
+});
+
+for (let i = 0; i < this.length; i++) {
+this[i] = arguments[i]; //this[0] = 1
+}
+}
+
+MyArray.prototype.पुश = function (el) {
+//masai_arr[3] = el
+
+this[this.length] = el;
+this.length++;
+};
+
+MyArray.prototype.हटाओ = function () {
+let index = this.length - 1;
+
+delete this[index];
+
+this.length--;
+};
+
+let masai_arr = new MyArray(1, 2, 3);
+
+masai_arr.पुश(4);
+masai_arr.पुश(5);
+
+masai_arr.हटाओ();
+masai_arr.हटाओ();
+
+console.log("masai_arr:", Object.values(masai_arr));
+
+//How do you create your own Push function and make it availiable on all array
+</script>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table,tr,th,thead{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div id="con">
+        <form action="">
+            <input type="text" id="name" placeholder="name">
+            <input type="number" id="no" placeholder="number">
+            <input type="text" id="cty" placeholder="Enter city">
+            <input type="submit" value="submit">
+        </form>
+
+
+        <table>
+            <thead>
+               <tr>
+                   <th>student name</th>
+                   <th>Number</th>
+                   <th>city</th>
+               </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+
+<script>
+    document.querySelector("form").addEventListener("submit",data)
+
+
+  var Array= JSON.parse(localStorage.getItem("sty")) || []
+    function data (event){
+        event.preventDefault()
+        
+        var name  =document.querySelector("#name").value
+        var number  =document.querySelector("#no").value
+        var city =document.querySelector("#cty").value
+
+        function studentfrom(name,number,city){
+               this.name=name
+               this.no =number
+               this.cty=city
+        }
+
+        var res =new  studentfrom(name,number,city)
+
+        console.log(res)
+        Array.push(res)
+   
+        localStorage.setItem("sty",JSON.stringify(Array))
+
+        displayArr(Array)
+
+
+
+
+
+    }
+  function  displayArr(Array){
+         document.querySelector("tbody").textContent=""
+         Array.map(function(ele){
+             
+            var tr =document.createElement('tr')
+            
+            var tr1 =document.createElement('td')
+            tr1.textContent=ele.name
+
+            var tr2 =document.createElement('td')
+            tr2.textContent=ele.no
+
+
+            var tr3 =document.createElement('td')
+            tr3.textContent=ele.cty
+
+            tr.append(tr1,tr2,tr3)
+            document.querySelector('tbody').append(tr)
+
+         })
+     }
+
+
+
+</script>

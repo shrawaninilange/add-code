@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+    <style>
+        #layout {
+            display: flex;
+            
+        }
+        .ul {
+            width:179px;
+            display: none;
+        }
+        .add:hover{
+            cursor: pointer;
+        }
+        .add.active .ul {
+            display: block;
+        }
+
+        button{
+            padding: 20px;
+            background-color: black;
+            color: aliceblue;
+            margin-right: 150px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="layout">
+        <div class="add">
+            <div class="shrawani">
+            <button>Object</button>
+            </div>
+            <div  class="ul">
+                <ul>
+                    <li>An object is a collection of properties, and a property is an association between a name and a value.</li>
+                    <li>Object is a primitive type data structure.</li>
+                    <li> It consist some value.</li>
+                    <li>Objects are mutable.</li>
+                </ul>
+            </div>
+        </div>   
+        <div class="add">
+            <div class="shrawani">
+            <button>Array</button>
+            </div>
+            <div  class="ul">
+                <ul  style="margin-left: -20px;">
+                    <li>An array is a data structure that contains a group of elements.</li>
+                    <li>Array is a non-primitive data structure.</li>
+                    <li>It consist of a NULL value.</li>
+                    <li>Array are immutable.</li>
+                </ul>
+            </div>
+        </div>   
+        <div class="add">
+            <div class="shrawani">
+            <button>Function</button>
+            </div>
+            <div  class="ul">
+                <ul  style="margin-left: -20px;">
+                    <li>Functions are defined with the "function" keyword.</li>
+                    <li>Functions is a composite data type data structure.</li>
+                    <li>It consist of value and it can also produce a value.</li>
+                    <li>Functions are immutable.</li>
+                </ul>
+            </div>
+        </div>   
+        <div class="add">
+            <div class="shrawani">
+            <button>String</button>
+            </div>
+            <div  class="ul">
+                <ul   >
+                    <li>A string is a sequence of one or more characters that may consist of letters, numbers, or symbols.</li>
+                    <li>String is a non-primitive type data structure.</li>
+                    <li>String consist of booleans value.</li>
+                    <li>String are immutable.</li>
+                </ul>
+            </div>
+        </div>   
+        <div class="add">
+            <div class="shrawani">
+            <button>Number</button>
+            </div>
+            <div  class="ul">
+                <ul   >
+                    <li>Number is a primitive wrapper object used to represent and manipulate numbers like 37 or -9.25.</li>
+                    <li>Number is a primitive type data structure.</li>
+                    <li>Number consist of Infinity value.</li>
+                    <li>Number are immutable.</li>
+                </ul>
+            </div>
+        </div>   
+        <div class="add">
+            <div class="shrawani">
+            <button>Null</button>
+            </div>
+            <div  class="ul">
+                <ul>
+                    <li>The value null represents the intentional absence of any object value.</li>
+                    <li>Null is a primitive type data structure.</li>
+                    <li>Null is a data value does not exist in the database.</li>
+                    <li>Null are immutable.</li>
+                </ul>
+            </div>
+        </div>   
+        <div class="add">
+            <div class="shrawani">
+            <button>Undefined</button>
+            </div>
+            <div  class="ul">
+                <ul>
+                    <li>The undefined property indicates that a variable has not been assigned a value, or not declared at all.</li>
+                    <li>Undefined is a primitive type data structure.</li>
+                    <li>Undefined is consist of primitive value undefined</li>
+                    <li>Undefined are immutable.</li>
+                </ul>
+            </div>
+        </div>   
+       
+</div>
+
+    
+</body>
+</html>
+<script>
+        let answers=document.querySelectorAll(".add");
+    answers.forEach((event)=>{
+        event.addEventListener('click',()=>{
+            if(event.classList.contains("active")){
+                (event.classList.remove("active"));
+            }
+            else{
+                event.classList.add("active");
+            }
+        })
+    })
+
+</script>
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <div id="container">
+    <form action=""> 
+        <input type="text" placeholder="Name" id="name">
+        <input type="number" placeholder="number" id="no">
+        <input type="text" placeholder="city" id="cty">
+        <input type="submit" value="sumbit">
+    
+    </form>
+
+ </div>
+</body>
+</html>
+
+
+<script>
+
+    document.querySelector("form").addEventListener( "submit" , studentfrom)
+
+
+    var arr =[]
+
+    function studentfrom(event){
+        event.preventDefault()
+       
+        var x=document.querySelector("#name").value
+        var y =document.querySelector("#no").value
+        var z =document.querySelector("#cty").value
+
+
+
+        function student(x,y,z){
+
+             this.name=x
+             this.no=y
+             this.cty=z
+
+        }
+
+        var res = new student(x,y,z)
+        console.log(res)
+        arr.push(res)
+
+        localStorage.setItem(student , JSON.stringify(arr))
+        
+    }
+
+
+
+    
+
+</script>
