@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="search">
+    <button onclick="searchVideos()">cxdvs</button>
+  
+    <div id = "container">
+ 
+    </div>
+
+  </div>
+</body>
+</html>
+
+<script>
+
+
+
+    var container =document.getElementById("container")
+    var key=   "AIzaSyDiBe_qt0Yt0GWSwim5f44MOvJHJNF0BzU"
+
+    async function searchVideos(){
+        try {
+
+              var inp= document.getElementById("search").value
+
+              
+      let res = await fetch(
+        `https://youtube.googleapis.com/youtube/v3/search?q=${inp}&key=${key}&type=video&maxResults=30&part=snippet`
+      );
+            
+            var data = await res.json()
+             
+
+            list = data.items
+            displaydata(list)
+            console.log(data)
+        } catch (error) { 
+            console.log(error)
+        }
+        
+    }
+
+    searchVideos()   
+function displaydata(video){
+    console.log(video)
+
+    // var container= document.getElementById("container")
+    container.innerHTML=""
+    video.forEach(({ id: { videoId } }) => {
+
+
+         
+        var div = document.createElement("div")
+
+        var iframe = document.createElement("iframe")
+        iframe.src= `https://www.youtube.com/embed/${videoId}`; 
+
+         iframe.width = "460px";
+      iframe.height = "260px"; 
+
+       iframe.setAttribute("allowfullscreen", true); 
+
+      div.append(iframe);
+      container.append(div);  
+
+    })
+}

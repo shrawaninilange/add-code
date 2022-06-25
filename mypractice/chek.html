@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body><select name="" id="food">
+    <option value="ff">tea</option>
+    <option value="fff">cofee</option>
+    <option value="ffff">vv</option>
+</select>
+    
+    <input type="submit" onclick="Order()">
+</body>
+</html>
+<script>
+    function Order() {
+    let status = 'Open'
+
+    let order = document.getElementById('food').value
+    // console.log(order)
+    
+    // console.log(token)
+    let Food_promise = new Promise(function (resolve, reject) {
+      setTimeout(function () {
+        if (status ==='Open') {
+          resolve(order)
+        } else {
+          reject('Told you,It was close!')
+        }
+      }, 3000)
+    })
+
+    Food_promise.then(function (res) {
+      
+      displaydata(res)
+    })
+
+    Food_promise.catch(function (err) {
+      console.log('err', err)
+    })
+  }
+
+
+ function displaydata(res){
+
+    var t = document.getElementById("food").value
+
+    if(res == "fff"){
+        alert("rfdsf")
+    }
+ }
+</script>

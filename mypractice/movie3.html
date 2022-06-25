@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        body{
+            background-image: url("https://previews.123rf.com/images/kostsov/kostsov2005/kostsov200500070/146736557-play-movie-icon-cinema-projector-on-tropic-leaves-background-online-app-for-watching-tv-series-and-m.jpg");
+        }
+        #container{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 10px;
+            margin: auto;
+            padding-left: 60px;
+      
+        }
+
+        #movi{
+            padding: 0px;
+            padding-left: 20px;
+           padding-right: 90px;
+           margin-left: 550px;
+           margin-top: 20px;
+           padding: 5px;
+           border-radius: 10px;
+         margin-bottom: 30px;
+           
+           
+
+        }
+
+
+        #sea{
+            padding: 6px;
+        }
+
+
+        #movie{
+            width: 500px;
+            height: 200px;
+            margin-left: 1000px;
+            margin-top: 30px;
+            
+        }
+
+        #new{
+            color: aliceblue;
+       
+        }
+
+        #new1{
+            color: aliceblue;
+             
+        }
+        input{
+            width: 20%;
+        }
+    </style>
+    
+</head>
+<body>
+    <input type="text" id ="movi">
+    <button onclick="Search()" id="sea">Search</button>
+    <div id="container"></div>
+</body>
+</html>
+
+<script>
+
+
+    function Search(){
+        var container= document.getElementById("container") 
+        container.innerText=""
+        async function getdata(){
+             try {
+                 
+                var filmName = document.getElementById("movi").value
+                var res = await fetch(`http://www.omdbapi.com/?apikey=8e2cdc3&s=${filmName}`)
+
+                var data = await res.json()
+                console.log(data)
+                display(data)
+             } catch (error) {
+                 console.log(error)
+             }
+         }
+ 
+                getdata()
+          }
+
+
+//           function display(data){
+//     console.log("data:",data)
+    
+//     data.Search.forEach(function(el) {
+      
+//         let div=document.createElement("div")
+
+//         let poster=document.createElement("img")
+//         poster.src=el.Poster
+//         poster.setAttribute("id","moive")
+
+//         let p=document.createElement("h2")
+//         p.innerText=el.Title
+//         p.setAttribute("id","new")
+
+        // let imdb=document.createElement("h1")
+        // imdb.innerText=random
+
+//         let year=document.createElement("p")
+//         year.innerText=el.Year
+//         year.setAttribute("id","new1")
+
+//         div.append(poster,p,year);
+
+//         container.append(div)
+
+//   });
+// }
+
+
+
+
+
+
+   
+          function display(data){
+
+            console.log(data)
+               
+
+              data.Search.forEach(function(el){
+
+                let div = document.createElement("div")
+
+                let poster = document.createElement("img")
+                poster.src= el.Poster
+                poster.setAttribute("id","moive")
+
+                let p2 = document.createElement("h1")
+                p2.innerText= el.Title
+                p2.setAttribute("id","new")
+
+       
+
+                let p1 = document.createElement("h3")
+                p1.innerText= el.Year
+                p1.setAttribute("id","new1")
+                          
+        // let imdb=document.createElement("h1")
+        // imdb.innerText=el.Imdb
+
+
+            div.append(poster,p2,p1)
+            container.append(div)
+
+
+              })
+          }
+
+</script>

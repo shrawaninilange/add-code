@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        
+        p{
+            color: rebeccapurple;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+</body>
+</html>
+
+<script>
+
+  
+var container  = document.getElementById("container")
+ 
+
+async function getdata(){
+    try {
+        var res = await fetch( `https://www.omdbapi.com/?apikey=8e2cdc3&t=inception `)
+
+        var data =await res.json()
+        showdata(data)
+        console.log("data",data)
+       
+
+    }
+        catch(err){
+            console.log("err",err)
+        }
+    }
+    getdata()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+//    function showdata(d){
+//       console.log(d)
+
+//       container.innerHTML=null
+
+//       var name =document.createElement("p")
+//       name.innerText=d.Title
+      
+
+      
+//       var temp      =document.createElement("p")
+//       temp.innerText=  d.Year
+
+//       var humidity=document.createElement("p")
+//       humidity.innerText=d.Rated 
+
+//       var pressure=document.createElement("p")
+//       pressure.innerText=d.Released
+
+      
+//       var poster=document.createElement("img")
+//       poster.src=d.Poster
+//       poster.style.width="600px"; 
+
+
+//     //    iframe.src=`https://maps.google.com/maps?q=pune&t=&z=13&ie=UTF8&iwloc=&output=embed`
+//       container.append(name,temp,humidity,pressure,poster)
+
+//    }
+
+
+    // function appendproducts(data){
+    //     console.log("data",data)
+       
+    //     data.map(function (el) {
+    //         var div =document.createElement("div")
+            
+    //         // let img =document.createElement("img")
+    //         // img.src=el.image
+
+    //         let title =document.createElement("p")
+    //         title.innerText=el.Title   
+
+    //         let price =document.createElement("p")
+    //         price.innerText=el.Year
+
+    //         let price1 =document.createElement("p")
+    //         price1.innerText=el.Rated
+
+    //         let price2 =document.createElement("p")
+    //         price2.innerText=el.Released
+
+
+    //         let price3 =document.createElement("p")
+    //         price3.innerText=el.Runtime
+
+
+
+    //         container.append(Title,price,price1,price2,price3)
+
+              
+    //         // container.append(div);
+      
+    //     })
+    
+
+
+
+</script>

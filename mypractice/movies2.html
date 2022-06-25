@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="city">
+    <button onclick="sreach()">sreach</button>
+    <div id="container">
+        
+        
+       
+    </div>
+</body>
+</html>
+
+<script>
+
+var key ="a8a691f071dcc88fb496337aee11eba2"
+  var city =document.getElementById("city").value
+  var container =document.getElementById("container")
+    async function getdata(){
+    try {
+        var city =document.getElementById("city").value
+        var res = await fetch( `http://www.omdbapi.com/?apikey=8e2cdc3&s=avengers`)
+
+        var data =await res.json()
+        
+        console.log("data",data)
+        showdata(data)
+
+    }
+        catch(err){
+            console.log("err",err)
+        }
+    }
+    getdata()
+
+
+
+
+    function showdata(d){
+      console.log(d)
+
+      container.innerHTML=null
+
+      var name =document.createElement("p")
+      name.innerText=d.Title
+
+      
+      var temp  =document.createElement("p")
+      temp.innerText=   d.Year
+
+      var humidity=document.createElement("p")
+      humidity.innerText=d.imdbID
+
+      var pressure=document.createElement("img")
+      pressure.src=d.Poster
+
+  
+      container.append(name,temp,humidity,pressure)
+
+   }
+
+</script>
+
+
+
+</script>

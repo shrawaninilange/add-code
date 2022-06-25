@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+    text-align: center;
+    background-image: url("https://st.depositphotos.com/1026550/4380/i/600/depositphotos_43807431-stock-photo-halloween.jpg") ;
+    background-size:cover ;
+}   
+  #container{
+      display: flex;
+      justify-content: space-around;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      grid-gap: 50px;
+      padding-left: 40px;
+      padding-right: 40px;
+  
+    
+}
+#moive:hover{
+    transform: scale(1.1);
+
+}
+
+#moive{
+    border-radius: 20px;
+    width: 90%;
+    height: 400px;
+    box-shadow: rgba(247, 244, 244, 0.25) 0px 54px 55px, rgb(128, 124, 124) 0px -12px 30px, rgb(117, 114, 114) 0px 4px 6px, rgb(141, 135, 135) 0px 12px 13px, rgb(117, 111, 111) 0px -3px 5px;
+}
+#new{
+   text-align: center;
+   margin-top: 20px;
+}
+#new1{
+   text-align: center;
+   margin-top: -10px;
+   font-size: 30px;
+   font-weight: bold;
+   font-family: 'Courier New', Courier, monospace;
+}
+h1{
+    text-align: center;
+    font-family: 'Bangers', cursive;
+    font-size: 70px;
+    margin-left: -130px;
+}
+h2{
+    color: rgb(238, 82, 105);
+}
+p{
+    color: rgb(230, 234, 235);
+}
+input{
+width: 40%;
+height: 30px;
+font-size: x-large;
+text-align: center;
+margin-bottom: 80px;
+}
+button{
+    width: 5%;
+    height: 30px;
+    margin-left: 10px;
+}
+.error{
+
+    height: 300px;
+    margin-left:-90px;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 15px;
+    border:  1px solid white;
+
+}
+#letter{
+    margin-top: -70px;
+    width: 100%;
+    height: auto;
+    color: white;
+    margin-left: 310px; 
+    font-size: 40px; 
+    font-weight:bolder;
+}
+    </style>
+</head>
+<body>
+  
+    <input style="height: 40px; border-radius: 10px; border: 1px solid black;" type="text" id="mySearch" name="mySearch">
+    <button style="height: 30px; font-weight: bold;font-family:cursive; width: 100px;border-radius: 5px;border: 1px solid black; margin-left: 40px;" onclick=" movieSearch()" id="btn1">Search</button>
+    <div id="container">
+        
+    </div>
+
+ 
+</body>
+</html>
+
+
+<script>
+      
+      function  movieSearch(){
+        var container = document.getElementById("container")
+        container.innerText=""
+
+        async function get(){
+             try {
+
+                var filmName = document.getElementById("mySearch").value
+                 var res = await fetch(`http://www.omdbapi.com/?apikey=8e2cdc3&s=${filmName}`)
+    
+                var data = await res.json()
+                console.log(data)
+                appendMovies(data)
+             } catch (error) {
+                 console.log(error)
+             }
+        }
+
+        get()
+
+    }
+ 
+
+    function appendMovies(data){
+    console.log("data:",data)
+    
+    data.Search.forEach(function(el) {
+      
+        let div=document.createElement("div")
+
+        let poster=document.createElement("img")
+        poster.src=el.Poster
+        poster.setAttribute("id","moive")
+
+        let p=document.createElement("h2")
+        p.innerText=el.Title
+        p.setAttribute("id","new")
+
+        // let imdb=document.createElement("h2")
+        // imdb.innerText=random
+
+        let year=document.createElement("p")
+        year.innerText=el.Year
+        year.setAttribute("id","new1")
+
+        div.append(poster,p,year);
+
+        container.append(div)
+
+  });
+}
+
+
+</script>

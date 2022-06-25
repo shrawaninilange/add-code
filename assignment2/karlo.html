@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        tr,td,table,tbody{
+            border: 1px solid rgb(20, 20, 20);
+            padding: 6px;
+             
+
+        }
+        #container{
+            display: flex;
+              gap: 500px;
+              width: 1000px;
+              background-color: slategrey;
+        }
+
+        h1{
+            text-align: center;
+            padding: 4px;
+            background-color: steelblue;
+        }
+         #ca{
+              margin-bottom: 40px;
+              padding: 5px;
+              border-radius: 4px;
+
+         }
+         form{
+             margin-bottom: 40px;
+             margin-left: 350px;
+             text-align: center;
+             height: 500px;
+             margin-top: 50px;
+              
+         }
+         #cat{
+             margin-bottom: 30px;
+             padding: 6px;
+              
+         } 
+    #shrawani{
+        margin-bottom: 30px;
+    }
+    #datetime{
+        margin-bottom: 30px;
+    }
+    #no{
+        margin-bottom: 30px;
+    }
+       
+    #dy{
+        padding: 90px;
+        padding-bottom: 400px;
+     
+        padding-left: 120px;
+        
+         
+    }
+    #hh{
+       background-color: black;
+       color: whitesmoke;
+    }
+         
+    </style>
+</head>
+<body>
+    <h1>Karlo</h1>
+    <div id="container">
+        <div>
+
+            <form action="">
+                 <select name="" id="ca" onchange="sort()">
+                     <option value="">select</option>
+                     <option value="">high</option>
+                     <option value="">low</option>
+                 </select><br>
+                
+                 <select name="" id="cat">
+                    <option value="">select</option>
+                    <option value="">refund</option>
+                    <option value="">   items mising</option>
+                    <option value="">order statuts</option>
+                    <option value="">delivery</option>
+                    <option value="">feedback</option>
+                 </select>
+                 <br>
+                 <textarea name="" id="shrawani" cols="30" rows="10"></textarea>
+                 <br>
+                 <input type="date" id="datetime">
+                 <br>
+                 <input type="number" id="no">
+                 <br>
+                 <input type="submit" value="submit" id="hh">
+
+            </form>
+        </div>
+        <div>
+
+            <table id="dy">
+                <thead>
+                    <tr>
+                        <td>query</td>
+                        <td> infomation</td>
+                        <td>date</td>
+                        <td>ticket no</td>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+        </div>
+         
+    </div>
+</body>
+</html>
+
+
+
+<script>
+    document.querySelector("form").addEventListener("submit",karlo)
+      var karloarr =JSON.parse(localStorage.getItem("karloitems")) || []
+      diplaytable(karloarr)
+
+    function karlo(event) {
+        event.preventDefault()
+        var selected = document.querySelector("#cat").value
+        var item = document.querySelector("#shrawani").value
+        var items=document.querySelector("#datetime").value
+        var itemss =document.querySelector("#no").value
+        
+        console.log(selected,item,items,itemss)
+
+        var obj= {
+            catt : selected,
+            shrawani : item,
+            datetime : items,
+            no : itemss,
+
+        }
+
+        karloarr.push(obj)
+        localStorage.setItem("karloitems", JSON.stringify(karloarr))
+        diplaytable(karloarr)
+      
+        
+    }
+
+
+    function  diplaytable(karloarr){
+        document.querySelector("tbody").textContent=""
+        karloarr.map(function(ele){
+            
+            var tr=document.createElement("tr")
+
+            var tr1 =document.createElement("td")
+            tr1.textContent=ele.catt
+
+            var tr2 =document.createElement("td")
+            tr2.textContent=ele.shrawani
+
+            var tr3 =document.createElement("td")
+            tr3.textContent=ele.datetime
+
+            var tr4 =document.createElement("td")
+            tr4.textContent=ele.no
+
+            tr.append(tr1,tr2,tr3,tr4)
+            document.querySelector("tbody").append(tr)
+        })
+    }
+ 
+    function sort(){
+        var selected=document.querySelector("ca").value
+        if(selected=="low"){
+            karloarr.sort(function(a,b){
+                return a.itemss-b.itemss
+            })
+        }
+
+        var selected=document.querySelector("ca").value
+        if(selected=="high"){
+            karloarr.sort(function(a,b){
+                return a.itemss-b.itemss
+            })
+        }
+        diplaytable(karloarr)
+      
+   
+    }
+  
+
+</script>

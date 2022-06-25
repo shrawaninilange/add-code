@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+       table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+        img {
+        height: 100px;
+        width: 100px;
+      }
+    </style>
+</head>
+<body>
+    
+    <div class="container">   
+        
+    </div>
+        <table>
+            <th>
+                <tr>
+                    <th>img</th>
+                  
+                    <th>price</th>
+                </tr>
+            </th>
+            <tbody></tbody>
+        </table>
+
+    </div>
+    <input type="text"  id="couponInput">
+    <input onClick="applyCoupon()" type="submit" name="" id="">
+    <p id="totalDisplay"></p>
+</body>
+</html>
+
+
+<script>
+
+    
+    var cart = JSON.parse(localStorage.getItem("cart")) || []
+    displayTable(cart)
+    
+    function displayTable(cart) {
+    document.querySelector("tbody").textContent = "";
+    cart.map(function (elem, index) {
+      var tr = document.createElement("tr");
+
+      var td1 = document.createElement("img");
+      td1.src = elem.image
+
+      var td2 = document.createElement("td");
+      td2.textContent = elem.price
+
+    //   var td3 = document.createElement("td");
+    //   td3.textContent = elem.title
+       
+
+      //   var td5= document.createElement("td");
+      //   td5.textContent = "delete"
+
+      tr.append(td1, td2, );
+      document.querySelector("tbody").append(tr);
+    });
+}
+
+let total = cart.reduce(function (acc, curr) {
+        return acc + curr.price;
+      }, 0);
+
+      console.log(total)
+
+
+      
+      function totalDisplay(total) {
+        // 280.6 ,150.6
+        let totalDisplay = document.getElementById("totalDisplay"); // get totalDisplay element
+        totalDisplay.textContent = "Total : " + total; // updated it's value with card total that has been passed as param;
+      }
+      totalDisplay(total);
+
+
+   
+function applyCoupon() {
+    var couponInput = document.getElementById("couponInput").value
+    if( couponInput === "masai30" )
+    {
+        total = total - 0.3*total
+        totalDisplay(total)
+    }
+}
+
+
+</script>
+
+
+<!-- function applyCoupon() {
+    let couponInput = document.getElementById("couponInput").value; // get coupoun inputted by user
+    if (couponInput === "masai30") {
+      // check if matches;
+      // total = prev total - 30% total;
+      total = total - 0.3 * total; // give discount by reducing total;
+      totalDisplay(total); // update dom
+    }
+  } -->

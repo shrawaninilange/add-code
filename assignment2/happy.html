@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+         #con{
+              margin: 30px;
+
+}
+
+  tr,td,thead{
+      border: 1px solid red;
+  }
+     </style>
+</head>
+<body>
+
+    <div id="con">
+        <form action=""> 
+        <select name="" id="cat">
+            <option value="">add</option>
+            <option value="">apple</option>
+            <option value="">orange</option>
+        </select>
+
+        <input type="text" name="" id="vry">
+
+        <textarea name="" id=" very" cols="30" rows="10" ></textarea>
+      
+        <input type="submit" value="submit" />
+    </form>
+
+     
+ 
+<div> 
+<table id="display ">
+    <thead>
+        <tr>
+            <td>item</td>
+            <td>item</td>
+            <td>item</td>
+        </tr>
+    </thead>
+    <tbody></tbody>
+    
+</table>
+</div>
+</div>
+</body>
+</html> 
+
+
+
+<script>
+    document.querySelector("form").addEventListener("submit",flip)
+   var objarr=JSON.parse(localStorage.getItem("flipitem")) ||[]
+   displayTable(objarr);
+    function flip(event){
+        event.preventDefault()
+        var selected=document.querySelector("#cat").value
+        var array =document.querySelector("#vry").value
+        var arr=document.querySelector("#very").value
+       
+
+    console.log(selected,array,arr)
+    var obj ={
+        select: selected,
+        select1:array,
+        select2:arr,
+    };
+    objarr.push(obj)
+    localStorage.setItem("flipitem",JSON.stringify(objarr))
+
+    displayTable(objarr);
+
+
+}
+
+function  displayTable(objarr){
+    document.querySelector("tbody").textContent=""
+    
+    objarr.map(function(ele,index){
+
+        var tr=document.createElement("tr")
+
+        var t=document.createElement("td")
+        t.textContent=ele.select
+
+        var td1 =document.createElement("td")
+        td1.textContent=ele.select1
+
+        var td2=document.createElement("td")
+        td2.textContent=ele.select2
+
+        tr.append(t,td1,td2)
+        document.querySelector("tbody").append(tr)
+    })
+}
+
+
+</script>

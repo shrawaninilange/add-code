@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+
+        img{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+   
+
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>image</th>
+                    <th>tite</th>
+                    <th>price</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <input type="text" name="" id="cop">
+        <input  onclick="apply()" type="submit" id="sub">
+            <p id ="totalp"></p>
+
+    
+</body>
+</html>
+
+
+
+<script>
+    var cart = JSON.parse(localStorage.getItem("cart")) || []
+    cartdata(cart)
+
+
+    function cartdata(cart){
+        document.createElement("tbody").textContent=""
+     cart.map(function(el){
+        var tr  = document.createElement("tr")
+
+        var td = document.createElement("img")
+        td.src=el.image
+
+        var td1 = document.createElement("td")
+        td1.textContent=el.price
+
+
+        var td2 = document.createElement("td")
+        td2.textContent=el.title
+        
+         tr.append(td,td1,td2)
+         document.querySelector("tbody").append(tr);
+
+
+     })
+
+
+
+    }
+
+
+
+
+    var total =cart.reduce(function(ac,ca){
+        return ac+ca.price
+
+    },0)
+    console.log(total)
+
+    // 
+    
+    function display(total){
+        
+        var totalcart = document.getElementById("totalp")
+        totalcart.textContent=total
+    }
+
+    display(total)
+
+
+
+    function apply() {
+    var couponInput = document.getElementById("cop").value
+    if( couponInput === "masai30" )
+    {
+        total = total - 0.3*total
+        display(total)
+     }
+}
+    
+</script>

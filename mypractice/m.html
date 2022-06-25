@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="city">
+    <button onclick="sreach()">sreach</button>
+    <div id="container">
+        
+       
+       
+    </div>
+    
+</body>
+</html>
+
+<script>
+    
+  var city =document.getElementById("city").value
+  var container =document.getElementById("container")
+   async function sreach(){
+       try{
+        var city =document.getElementById("city").value
+    var res = await fetch(`https://www.omdbapi.com/?apikey=8e2cdc3&s=spiderman`)
+
+    var data = await res.json()
+    showdata(data)
+    console.log(data,"data")
+       }
+       catch(err){
+            console.log("err",err)
+       }
+
+   }
+
+   sreach() 
+
+
+   function showdata(data){
+      console.log(data)
+      container.innerHTML=null
+     data.forEach(function(d){
+  
+       var div = document.createElement("div")
+      
+       
+
+    //   var name =document.createElement("p")
+    //   name.innerText=d.name
+
+      
+      var temp    =document.createElement("p")
+      temp.textContent=d.Title
+
+      var humidity=document.createElement("p")
+      humidity.textContent=d.Year
+
+      var pressure=document.createElement("img")
+      pressure.src=d.Poster
+
+    //    iframe.src=`https://maps.google.com/maps?q=pune&t=&z=13&ie=UTF8&iwloc=&output=embed`
+      div.append(temp,humidity,pressure)
+      container.append(div)
+   
+
+  })
+ 
+}
+</script>

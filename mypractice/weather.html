@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <input type="text" id="city2">
+    <button onclick="sreach()">sreach</button>
+
+    <div id="container"></div>
+    
+</body>
+</html>
+
+<script>
+    var key ="a8a691f071dcc88fb496337aee11eba2"
+  var city =document.getElementById("city2").value
+  var container =document.getElementById("container")
+   async function sreach(){
+       try{
+        var city =document.getElementById("city2").value
+    var res = await fetch(` https://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=7&appid=${key}&units=metric`)
+   
+    
+    var data = await res.json()
+    showdata(data)
+    console.log(data,"data")
+       }
+       catch(err){
+            console.log("err",err)
+       }
+
+   }
+
+//    sreach()
+
+
+function showdata(d){
+      console.log(d)
+
+      container.innerHTML=null
+
+      var name =document.createElement("p")
+      name.textContent=d.temp_max
+
+      
+      var temp   =document.createElement("p")
+      temp.textContent=  d.temp_min 
+
+       container.append(name,temp)
+
+}
+</script>       

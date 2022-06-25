@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+    <h2>total</h2>
+    </div>
+</body>
+</html>
+
+<script>
+    var carArr=JSON.parse(localStorage.getItem("cartt"))
+    console.log(carArr)
+
+
+//     var data = [
+//     {
+//         imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi1.jpg.pagespeed.ic.mkSk-Af1ka.webp",
+//         name:"LATEST MENS SNEAKER",
+//         price:"25.00",
+//         strikedOffPrice:"$95.00"
+//     },{
+//         imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi2.jpg.pagespeed.ic.uBrpABaJqp.webp",
+//         name:"LATEST MENS SNEAKER",
+//         price:"35.00",
+//         strikedOffPrice:"$100.00"
+//     },{
+//         imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi3.jpg.pagespeed.ic.iO_cFEPy2K.webp",
+//         name:"LATEST MENS SNEAKER",
+//         price:"35.00",
+//         strikedOffPrice:"$100.00"
+//     },
+//     {
+//         imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi4.jpg.pagespeed.ic.kmiQW8I5wx.webp",
+//         name:"LATEST MENS SNEAKER",
+//         price:"35.00",
+//         strikedOffPrice:"$100.00"
+//     },
+
+    
+// ]
+
+
+carArr.map(function(ele){
+    var div = document.createElement("div")
+
+    var imgg =document.createElement("img")
+    imgg.setAttribute("src",ele.imgUrl)
+
+
+    var h4 = document.createElement("h4")
+    h4.textContent=ele.name
+
+    // var div1 = document.createElement("div")
+    
+
+    var p = document.createElement("p")
+    p.textContent=ele.price
+
+    var h5=document.createElement("p")
+    h5.textContent=ele.strikedOffPrice
+
+
+    // var btn =document.createElement("button")
+    // btn.textContent="cart"
+    //  btn.addEventListener("click",function(){
+    //      addtocart(data)
+    //  })
+
+
+
+    // div1.append(p,h5)
+    div.append(imgg,h4,p,h5)
+    document.querySelector("#container").append(div)
+
+})
+
+var total =carArr.reduce(function(ac,cv){
+             return ac+ Number(cv.price)
+     },0)
+     console.log(total)
+     document.querySelector("h2").textContent=total  
+</script>

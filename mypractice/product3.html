@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        #container{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 20px;
+
+        }
+
+
+
+        img{
+        width: 100px;
+        height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="count"></div>
+
+    <select name="" id="srt"  onclick="handlesorting()">
+        <option value="">select</option>
+        <option value="high">high</option>
+        <option value="low">low</option>
+    </select>
+
+    <div id="container">
+
+
+
+         
+
+    </div>
+    
+</body>
+</html>
+
+
+
+<script>
+
+    var container = document.getElementById("container")
+      
+    var cart =localStorage.getItem("cart")
+if(!cart){
+    cart=[]
+
+    localStorage.setItem("cart",JSON.stringify(cart))
+    refreshCartCount(cart) 
+}
+else{
+    cart=JSON.parse(cart)
+    refreshCartCount(cart) 
+}
+
+
+    function refreshCartCount(cart) {
+        // argument format [{id:1, title:1, ...},{},{}]
+        let cartCount = document.getElementById("count");
+        cartCount.textContent = " Cart Count : " + cart.length;
+      }
+   
+
+    async function getproduct()
+    {
+         try {
+             var res = await fetch(`https://fakestoreapi.com/products`)
+
+                 console.log(res)
+             var data = await res.json()
+             console.log(data)
+             displayitem(data)
+
+
+
+         } catch (error) {
+             console.log(error )
+         }
+    }
+
+    getproduct()
+
+
+
+
+function displayitem(item)
+{   
+    let container = document.getElementById("container");
+        container.innerHTML = "";
+    
+
+    item.forEach(function(el){
+
+        var div = document.createElement("div")
+
+        var img = document.createElement("img")
+        img.src =el.image
+
+        var p1 =document.createElement("p")
+        p1.textContent =el.title
+
+        var p2=document.createElement("p")
+        p2.textContent =el.price
+
+        var btn = document.createElement("button")
+        btn.textContent="cart"
+        btn.onclick=function(event){
+            addTocart(el)
+        }
+
+
+        div.append(img,p1,p2,btn)
+
+        container.append(div)
+        localStorage.setItem("item",JSON.stringify(item))
+
+    })
+}
+
+
+   var item = JSON.parse(localStorage.getItem("item"))
+
+function handlesorting()
+{
+  var selected = document.getElementById("srt").value
+
+  if(selected == "high"){
+      item.sort(function(a,b){
+        return Number(b.price) - Number(a.price)
+      })
+  }
+  if(selected == "low"){
+      item.sort(function(a,b){
+        return Number(a.price) - Number(b.price)
+      })
+  }
+
+  displayitem(item)
+}
+
+var item = JSON.parse(localStorage.getItem("item"))
+
+
+//  var cart =JSON.parse(localStorage.getItem(cart))
+//  function addtocart(item){
+
+//     var cart = JSON.parse(localStorage.getItem("cart"))
+//     cart.push(item)
+
+//     localStorage.setItem("cart",JSON.stringify(cart))
+
+//     refreshCartCount(cart) 
+
+//  }
+
+
+
+
+ function addTocart(item) {
+          // input format : {id:1, title: "Mens Casual Premium Slim Fit T-Shirts",.....}
+          // we need to add this product to the cart ( cart is in local storage)
+          let cart = JSON.parse(localStorage.getItem("cart")); // get cart data from local storage;
+
+          cart.push(item);  
+
+          localStorage.setItem("cart", JSON.stringify(cart)); // save the data to local storage;
+        //   refreshCartCount(cart); // refreshCartCount function gets invoked which will refresh cart count on navbar so it gets the latest data
+        refreshCartCount(cart)
+      }
+
+
+                            
+</script>

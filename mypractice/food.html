@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h1{
+         text-align: center;
+    }
+    #food{
+         padding: 10px;
+         padding-right: 20px;
+    }
+</style>
+<body>
+    <div>
+        <h1> McDonald's </h1>
+        <select name="" id="food" onclick="order()">
+            <option value="" >select</option>
+            <option value="rr" >Tea</option>
+            <option value="rrr" >Coffee</option>
+            <option value="rrrr" >soft drink</option>
+            <option value="rrrrr" >fruits</option>
+        </select>
+    </div>
+</body>
+</html>
+
+<script>
+
+    function order(){
+        var status ="open"
+      var order=  document.getElementById("food").value
+      let food_promise = new Promise(function(resolve,reject){
+          
+        setTimeout(function()  {
+            if(status === "open"){
+                resolve(`${order} "take"`)
+            }
+            else{
+                reject("closed")
+            }
+
+            
+        }, 5000);
+
+      })
+
+     
+    food_promise.then(function(res){
+        console.log(res)
+    })
+    food_promise.catch(function(res){
+        console.log(res)
+    })
+
+
+    }
+    
+
+  
+   
+</script>

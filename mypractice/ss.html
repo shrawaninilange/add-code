@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+         #container{
+            display: grid;
+           
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: (1,400px);
+            gap: 30px;
+            margin: auto;
+            /* width: 90%; */
+         
+            box-shadow:rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+        }
+        h3{
+            text-align: center;
+        }
+        h4{
+            text-align: center;
+            color: grey;
+        }
+        img{
+            width: 300px;
+            height: 200px;
+        }
+         
+
+         
+    </style>
+</head>
+<body>
+    <div id="container">
+        
+    </div>
+</body>
+</html>
+
+<script>
+    var movies=[
+    {
+        Name: "EPA",
+        Release_date: "5 Mar 1995",
+        image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPDws440Wf8kq-bJPIP0XjC-Gczio7vI3rUg&usqp=CAU",
+        ImdbRating:7
+      },
+      {
+        Name: "Dracula",
+        Release_date: "10 Mar 2005",
+        image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcCqMImE0moyFWVXHYz5XnGNLkOlQgEYy1Fw&usqp=CAU",
+        ImdbRating:9
+      },
+      {
+        Name: "War",
+        Release_date: "13 Jun 2002",
+        image:"https://swall.teahub.io/photos/small/2-29995_war-war-2019-movie-hd.jpg   ",
+        ImdbRating:10
+      },
+      {
+        Name: "Glass",
+        Release_date: "23 Feb 2021",
+        image:"https://swall.teahub.io/photos/small/3-30342_don-t-movie-poster-names-ever-line-up.jpg",
+        ImdbRating:8
+      },
+      {
+        Name: "Oblivion",
+        Release_date: "18 Jan 2007",
+        image:"https://swall.teahub.io/photos/small/67-675374_hollywood-movies-background.jpg",
+        ImdbRating:5
+      },
+      {
+        Name: "War Craft",
+        Release_date: "26 Dec 2003",
+        image:"https://swall.teahub.io/photos/small/132-1329696_world-of-warcraft-movie-poster.jpg",
+        ImdbRating:6.5
+      },
+      {
+        Name: "Dead Pool",
+        Release_date: "9 July 2014",
+        image:"https://swall.teahub.io/photos/small/212-2128150_free-deadpool-artwork-movie-computer-desktop-wallpapers-deadpool.jpg",
+        ImdbRating:7.3
+      },
+      {
+        Name: "Aliens",
+        Release_date: "29 Sep 1998",
+        image:"https://swall.teahub.io/photos/small/3-30438_aliens-movie-hd-wallpapers-aliens-colonial-marines-wallpaper.jpg",
+        ImdbRating:8.2
+      },
+      {
+        Name: "Titanic",
+        Release_date: "11 Oct 1996",
+        image:"https://swall.teahub.io/photos/small/320-3200558_titanic-movie-ship-wallpaper-hd-wallpaper-pictures-movie.jpg",
+        ImdbRating:9.5
+      },
+    ]
+    var move=[
+    {image:"https://miro.medium.com/max/1400/1*V8TylpVMyXYE2znuXC5WeA.jpeg"},
+    {image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSI9FSgRGvoxAkNxXL5dOK45t8T-CjV07yfw&usqp=CAU" },
+    {image:"https://c4.wallpaperflare.com/wallpaper/194/620/840/movies-bollywood-movies-wallpaper-preview.jpg" },
+    {image:"https://wallpapercave.com/wp/wp8807385.jpg"},
+    {image:"https://www.newsncr.com/wp-content/uploads/2021/10/Sooryavanshi-Makers-of-Sooryavanshi-released-a-new-poster-of-Akshay.jpg"},
+    {image:"https://s1.dmcdn.net/v/SARtY1UbgGwUeOWmd/x1080"},
+    {image:"https://images.news18.com/ibnlive/uploads/2020/07/1604654831_ganpath-first-look.jpg?im=FitAndFill,width=1200,height=900"},
+    {image:"https://wallpaperaccess.com/full/1512323.jpg"},
+    {image:"https://s1.dmcdn.net/v/NCPV21WQi0wv5bzOq/x1080"},
+    ]
+  
+    localStorage.setItem("movie",JSON.stringify(move))
+  
+    localStorage.setItem("movie",JSON.stringify(movies))
+
+
+
+  movies.map(function(el){
+    var div =document.createElement("div")
+            
+              
+
+            let title =document.createElement("p")
+            title.innerText=el.Name  
+
+            
+            let price =document.createElement("p")
+            price.innerText=el.Release_date
+
+            let img =document.createElement("img")
+             img.src=el.image
+ 
+
+            // let price1 =document.createElement("p")
+            // price1.innerText=el.Rated
+
+            let price2 =document.createElement("p")
+            price2.innerText=el.ImdbRating
+
+
+            
+            div.append(title,price,img,price2)
+
+              
+            document.querySelector("#container").append(div)
+       
+
+  })
+
+
+
+
+
+</script>

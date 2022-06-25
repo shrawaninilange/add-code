@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        background-image: url(https://i.pinimg.com/originals/a9/cc/32/a9cc32ec0022f7b356c094f5f3c651c3.jpg);
+      }
+      #mac {
+        padding-left: 100px;
+        padding-right: 100px;
+        margin-left: 750px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+
+      button {
+        padding: 10px;
+      }
+
+      img {
+        margin-left: 500px;
+        width: 800px;
+        height: 400px;
+        margin-top: 20px;
+      }
+      h3 {
+        margin-left: 500px;
+      }
+
+      h1 {
+        margin-left: 840px;
+        color: aliceblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>McDonald's</h1>
+      <select name="" id="mac">
+        <option value="">Select Meals</option>
+        <option value="burger">burger</option>
+        <option value="Sausage">cold Coffee</option>
+        <option value="Hot Chocolate">Hot Chocolate</option>
+
+        <option value="Cheeseburger">Cheeseburger</option>
+      </select>
+      <button onclick="food()">submit</button>
+    </div>
+
+    <div id="con"></div>
+  </body>
+</html>
+
+<script>
+  function food() {
+    var status = "Open";
+
+    let order = document.getElementById("mac").value;
+
+    var t = Math.round(Math.random() * 5);
+    console.log(t);
+    let Food_promise = new Promise(function (resolve, reject) {
+      setTimeout(function () {
+        if (status == "Open") {
+          resolve(order);
+        } else {
+          reject("Told you,It was close!");
+        }
+      }, 3000);
+    });
+
+    Food_promise.then(function (res) {
+      alert("ready");
+      display(res);
+    });
+
+    Food_promise.catch(function (err) {
+      console.log("err", err);
+    });
+  }
+
+  function display(res) {
+    document.getElementById("con").textContent = "";
+
+    if (res == "burger") {
+      var div = document.createElement("div");
+      var h3 = document.createElement("h2");
+      h3.style.color = "white";
+      h3.style.textAlign = "center";
+      h3.textContent = "your order is ready";
+      var random = document.createElement("h3");
+      random.textContent = "order id " + Math.round(Math.random() * 5);
+      random.style.color = "white";
+      random.style.marginLeft = "700px";
+      var img = document.createElement("img");
+      img.src =
+        "https://www.mashed.com/img/gallery/the-truth-about-burger-kings-1-cheeseburger/the-reviews-on-the-1-cheeseburger-are-in-1593540420.jpg";
+
+      div.append(h3, random, img);
+
+      document.querySelector("#con").append(div);
+    } else if (res == "Sausage") {
+      var div = document.createElement("div");
+      var h3 = document.createElement("h2");
+      h3.style.color = "white";
+      h3.style.textAlign = "center";
+      h3.textContent = "your order is ready";
+      var random = document.createElement("h3");
+      random.textContent = "order id " + Math.round(Math.random() * 5);
+      random.style.color = "white";
+      random.style.marginLeft = "700px";
+      var img = document.createElement("img");
+      img.src =
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxTWjhM1G99b4f3QxXFxwuaTBS6hXZCcdWIg&usqp=CAU";
+
+      div.append(h3, random, img);
+
+      document.querySelector("#con").append(div);
+    } else if (res == "Hot Chocolate") {
+      var div = document.createElement("div");
+      var h3 = document.createElement("h2");
+      h3.style.color = "white";
+      h3.style.textAlign = "center";
+      h3.textContent = "your order is ready";
+      var random = document.createElement("h3");
+      random.textContent = "order id " + Math.round(Math.random() * 5);
+      random.style.color = "white";
+      random.style.marginLeft = "700px";
+      var img = document.createElement("img");
+      img.src =
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7GNl1w1mQHbujI1JE7fgUmQdTkq7bb0VMwHHqlQMLFYR0W6DzjIv6cKM2RIBx9ZIlZho&usqp=CAU";
+
+      div.append(h3, random, img);
+
+      document.querySelector("#con").append(div);
+    } else if (res == "Cheeseburger") {
+      var div = document.createElement("div");
+      var h3 = document.createElement("h2");
+      h3.style.color = "white";
+      h3.style.textAlign = "center";
+      h3.textContent = "your order is ready";
+      var random = document.createElement("h3");
+      random.textContent = "order id " + Math.round(Math.random() * 5);
+      random.style.color = "white";
+      random.style.marginLeft = "700px";
+      var img = document.createElement("img");
+      img.src =
+        "https://www.mashed.com/img/gallery/the-truth-about-burger-kings-1-cheeseburger/the-reviews-on-the-1-cheeseburger-are-in-1593540420.jpg";
+
+      div.append(h3, random, img);
+
+      document.querySelector("#con").append(div);
+    }
+  }
+</script>

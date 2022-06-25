@@ -1,0 +1,97 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+ </head>
+ <body>
+      
+     <!-- </div>
+     <p id ="p">sxzdv</p>
+     <p class="p1">dsxv</p> 
+   
+   <button onclick="on()" class="cl">click</button> -->
+      <div id="slideshow">
+        <img src="" id="slideshow" alt="">
+      </div>
+      <div id="image"></div>
+
+   <img src="" alt="">
+ </body>
+ </html>
+
+
+  <script>
+   
+  //   // document.querySelector(".btn").addEventListener("click",add)
+  //   //   function add(){
+  //   //       alert("ok")
+  //   //   }
+
+  //   //   function google(name,by){
+  //   //       console.log("hello"+name+by)
+  //   //   }
+  //   //   setTimeout(google,10000,"sh","by")
+  //   //   setInterval(google,5000)
+
+  //    var cl = document.getElementsByClassName("cl")
+  //    var cl2 = document.getElementsByClassName("cl2")
+  //    var cl ="open"
+  // function add(){
+  //     if(cl == "open"){
+  //       var img = document.getElementById("img").img
+  //       var vy= document.getElementById("p").textContent="kskcvf"
+  //     }
+  // }
+  //    console.log(vy)
+
+
+  //    function add(){
+  //        var c = document.getElementById("class").value
+            
+  //    }
+
+    
+  //    console.log(c)
+
+
+
+  //   function on(){
+  //       document.getElementById("p").textContent="this objecct"
+  //       document.getElementById("p1").textContent="thissxcvfdx objecct"
+  //   }
+
+  var move=[
+    "https://miro.medium.com/max/1400/1*V8TylpVMyXYE2znuXC5WeA.jpeg",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSI9FSgRGvoxAkNxXL5dOK45t8T-CjV07yfw&usqp=CAU" ,
+    "https://c4.wallpaperflare.com/wallpaper/194/620/840/movies-bollywood-movies-wallpaper-preview.jpg" ,
+    "https://wallpapercave.com/wp/wp8807385.jpg",
+    "https://www.newsncr.com/wp-content/uploads/2021/10/Sooryavanshi-Makers-of-Sooryavanshi-released-a-new-poster-of-Akshay.jpg",
+    "https://s1.dmcdn.net/v/SARtY1UbgGwUeOWmd/x1080",
+    "https://images.news18.com/ibnlive/uploads/2020/07/1604654831_ganpath-first-look.jpg?im=FitAndFill,width=1200,height=900",
+    "https://wallpaperaccess.com/full/1512323.jpg",
+    "https://s1.dmcdn.net/v/NCPV21WQi0wv5bzOq/x1080",
+    ]
+  
+     
+    let i=0
+myto(move,i)
+function myto(move,i){
+  let images =document.createElement("img")
+  setInterval(function()   {
+    if(i == move.length-1){
+           i=0
+    }
+          images.src=move[i]
+          document.getElementById("sildeshow").append(images)
+          i=i+1
+    
+  }, 2000);
+}
+
+     
+
+     
+  </script>

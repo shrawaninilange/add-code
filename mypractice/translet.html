@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+        #container{
+            display: flex;
+            height: 700px;
+            
+        }
+        #input-section,#output-section{
+            flex : 1;
+            margin: 5%;
+        }
+        div{
+            border: 1px solid black;
+            height: 300px;
+        }
+        #input-text{
+            width: 100%;
+            height: 80%;
+        }
+
+    </style>
+  </head>
+
+  <style></style>
+
+  <body>
+    <div id="container">
+      <div id="input-section">
+        <!--Create button that will run translate text function, give id "translate-btn"-->
+        <button id="translet-btn" onclick="late()">translate</button>
+        <!--Create input that will accept text to be translated, give id "input-text"-->
+        <textarea name="" id="input-text" ></textarea>
+      </div>
+      <div id="output-section">
+        <p id="translated-text">
+          <!--Show translated text here-->
+          
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+    
+    async function late(){
+        
+       try{
+        var input = document.getElementById("input-text").value
+        var res = await fetch("https://libretranslate.de/translate",{
+            method:"POST",
+            body: JSON.stringify({
+                  q : input,
+                  source : "en",
+                  target : "hi",
+                  format : "text",
+            }),
+
+
+
+            headers : {
+               
+                "Content-Type" : "application/json",
+
+
+            },
+        })
+        let data =await res.json()
+        console.log(data)
+          document.getElementById("translated-text").innerText=data.translatedText
+    }
+    
+    catch(err){
+        console.log(err)
+    }
+
+    }
+     
+
+</script>
+
+
+
+
+
+8a6296681711d8ff723585e80fc5dc30
+
+
+
+https://api.themoviedb.org/3/movie/550?api_key=8a6296681711d8ff723585e80fc5dc30
