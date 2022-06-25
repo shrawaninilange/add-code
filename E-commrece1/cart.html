@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container"></div>
+    <h1> total</h1>
+     <button onclick="window.location.href='checkout.html'">check out</button>
+    
+</body> 
+</html>
+
+<script>
+     var cartarr = JSON.parse(localStorage.getItem("cartgg"))
+
+     console.log(cartarr)
+
+     cartarr.map(function(ele){
+        var div=document.createElement("div")
+
+            var imgg = document.createElement("img")
+            imgg.setAttribute("src",ele.imgUrl)
+
+            var name =document.createElement("h3")
+            name.textContent=ele.name
+
+            var price= document.createElement("h3")
+            price.textContent=ele.price
+
+            var s =document.createElement("h4")
+            s.textContent=ele.strikedOffPrice
+
+
+// var btn = document.createElement("button")
+// btn.textContent="add to cart"
+// btn.addEventListener("click",function(){
+//     AlltoCart(data)
+// })
+
+div.append(imgg,name,price,s)
+document.querySelector("#container").append(div)
+
+
+
+// div.append(imgg,name,price,s)
+// document.querySelector("#container").append(div)
+// localStorage.setItem("datada", JSON.stringify(data))
+
+     })
+
+
+     var total =cartarr.reduce(function(ac,cv){
+             return ac+ Number(cv.price)
+     },0)
+     console.log(total)
+     document.querySelector("h1").textContent=total
+</script>

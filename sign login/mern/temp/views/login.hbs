@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiva_Compandstud_Login_page</title>
+    <link rel="stylesheet" href="sfooter.css">
+
+    <script src="https://kit.fontawesome.com/183c191db3.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+     <link rel="stylesheet" href="only.css">
+     <link rel="stylesheet" href="snavbar.css">
+     <link rel="stylesheet" href="./style/m_sidebar2.css">
+
+
+    
+    <style>
+        
+        /* sctudent and comapnay button class */
+        .navbar {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+     background-image: linear-gradient(to left, white, white);
+
+}
+.logo {
+    width: 85%;
+}
+
+.logo img {
+    width: 8%;
+    margin-left: 50px;
+    padding-bottom: 10px;
+}
+
+.signbtn {
+    border: 1px solid red;
+    background-color: rgb(223,30,46);
+    padding: 8px;
+    border-radius: 5px;
+    color: white;
+    font-size: 19px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+        .scbtn {
+            display: flex;
+            width: 450px;
+            height: 30px;
+            overflow: hidden;
+            justify-content: space-between;
+            margin-top: 50px;
+           
+        }
+
+        .cscbtn>button {
+            width: 200px;
+            height: 42px;
+            background: none;
+             border-bottom: 3px solid blue;
+            color: rgba(0, 0, 0, 0.657);
+            border-radius: 0px;
+            font-weight: bold;
+            /* font-size: 20px; 
+            margin-top:-10px; */
+        }
+
+        .cscbtn>button:hover{
+
+            cursor: pointer;
+        }
+
+        /* chaeck Box  */
+        #checkboxid {
+            width: 20px;
+            height: 25px;
+        }
+
+        .checkbox label {
+            font-size: 17px;
+            position: relative;
+            top: -5px;
+            left: 7px;
+
+        }
+
+        .checkbox a {
+            position: relative;
+            left: 200px;
+            top: -5px;
+        }
+
+        /* Ccreate Account anchar tag */
+        .creatA {
+            margin-top: 20px;
+
+        }
+
+        .creatA p {
+            text-align: center;
+            margin-left: -70px;
+        }
+
+        .checkbox {
+            margin-top: -15px;
+        }
+
+         icon google and facebook */
+         #fb,
+        #gl {
+            margin-top: 10px;
+        } 
+
+        .form1,
+        .form2 {
+            display: none;
+        }
+        @media only screen and (max-width:550px){
+            .scbtn {
+    display: flex;
+    width: 350px;
+    height: 30px;
+    overflow: hidden;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.cscbtn>button {
+    width: 150px;
+    height: 42px;
+    background: none;
+    border-bottom: 1px solid black;
+    color: rgba(0, 0, 0, 0.657);
+    border-radius: 0px;
+}
+.checkbox a {
+    position: relative;
+    left: 65px;
+    top: -5px;
+}
+.creatA p {
+            text-align: center;
+            margin-left: -30px;
+        }
+            
+        }
+
+
+        /* @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@100;500&family=Roboto+Condensed:wght@700&display=swap'); */
+*{
+    padding: 0;
+    margin: 0;
+    border: none;
+    font-size: 15px;
+    font-family: sans-serif;
+}
+ header{
+    width: 100%;
+    height: 70Px;
+    background-color: black;
+    border: 1px solid white;
+} 
+ body{
+    background-color: rgb(234,234,234);
+} 
+main{
+    width: 100%;
+    height: 900px;
+    border: 1px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+
+}
+ #fb{
+
+    margin-top: 30px;
+    background-color: rgb(66,103,178);
+
+
+} 
+#fb button:hover{
+    cursor: pointer;
+    /* background-color: blue; */
+}
+
+#gl button:hover{ 
+
+cursor: pointer;
+background-color: rgb(66,103,178);
+
+}
+
+#fb  button{
+
+    font-family: sans-serif;
+    font-weight: bolder;
+}
+
+#gl  button{
+
+    font-family: sans-serif;
+    font-weight: bolder;
+}
+
+#first-layer{
+    display: flex;
+    border: 1px ;
+    margin-top: 30px;
+    background-color: white;
+    border-radius: 10px;
+     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; 
+}
+#Second-layer{
+    margin-top: 20px;
+    width: 542px;
+    display: flex;
+    margin-left: 31px;
+    margin-right: 20px;
+    flex-direction: column;
+}
+#api-part>div{
+    margin: 12px;
+}
+#heding,h1{
+/* font-weight: bold; */
+font-size: 25px;
+font-family: sans-serif;
+margin-bottom: 10px;
+
+}
+#heding,p{
+    color: rgb(92, 98, 105);
+    font-weight: lighter;
+    font-size: large;
+    text-decoration: none;
+    border-radius: 5px;
+}
+#inqury{
+    font-size: 17px;
+    border: 1px dashed orangered;
+    border-radius: 7px;
+    background-color: rgb(252,239,241);
+}
+a{
+    text-decoration: none;
+    color: rgb(13,126,221);
+}
+#one{
+    text-decoration: none;
+}
+#inqury>p{
+    padding: 10px;
+}
+
+ #fb>button{
+    background-color: rgb(66,103,178);
+} 
+.fab{
+    position: relative;
+    left: 20px;
+    top: 18px;
+}
+button{
+    padding: 10px;
+    width: 515px;
+    margin-left: 0px;
+    font-size: 17px;
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    margin-top: -17px;
+    border: none;
+    border-radius: 7px;
+}
+#fb{
+    border-radius: 7px;
+}
+ .sfb{
+    color: white;
+    font-size:bolder;
+} 
+.gfb{
+    color: white;
+    font-size:bolder;
+} 
+#gl{
+    margin-top: 5px;
+}
+#gl>button{
+    background-color: rgb(8,124,221);
+} 
+input{
+    border-bottom: 0.5px solid rgb(148,148,148);
+    outline: none;
+    padding-top: 13px;
+    overflow: hidden;
+
+}
+form>div{
+    margin: 30px 0 0 9px;
+}
+.name{
+    display: flex;
+}
+#secname{
+    margin-left: 125px;
+}
+#lastname{
+    padding-left: 7px;
+}
+.labels-name{
+    position: relative;
+    width: 141px;
+    height: 40px;
+
+}
+.labels-name input{
+    height: 27px;
+    width: 508px;
+}
+
+#firstname,#lastname{
+    width: 252px;
+}
+
+.labels-name span{
+    position: absolute;
+    bottom: 5px;
+    left: 0%;
+    width: 100%;
+    height: 60%;
+    pointer-events: none;
+}
+ .lable-content{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    transition: all 0.3s ease;
+    width: 200px;
+    height: 20px;
+    pointer-events: none;
+    background-color: white;
+    color: rgb(148,148,148);
+    font-size: 20px;
+} 
+
+input:focus + .lable-content
+{
+    transform: translatey(-80%);
+    font-size: 12px;
+}
+input:valid + .lable-content
+{
+    transform: translatey(-80%);
+    font-size: 14px;
+     color: blue;
+    border: none;
+}
+ input:valid{
+    border-bottom: 1px solid blue;
+} 
+input:hover{
+    border-bottom: 2px solid black;
+}
+
+.btn button
+{
+    margin-top: 10px;
+    background: none;
+    border: 0.5px solid red;
+    color: red;
+    margin: auto;
+    margin-top: 30px;
+   font-weight: bold;
+}
+.btn button:hover{
+    cursor: pointer;
+    background-color:lightsalmon;
+}
+.notvalid{
+    display: none;
+    font-size: 12px;
+    color: red;
+    margin: 10px;
+}
+input:invalid + .notvalid{
+    display: block;
+    color: black;
+}
+#secspan{
+margin-left:283px;
+margin-top: -27px;
+}
+#lineOr
+{
+    text-align: center;
+}
+#li button{
+
+    font-family:sans-serif ;
+    font-weight: bold;
+    background-color: rgb(8,124,221);
+}
+
+#li button:hover{
+
+    cursor: pointer;
+    background-color: rgb(66,103,178);
+}
+
+
+#navBarBox{
+    /* border: 2px solid grey; */
+    display: inline-flex;
+    height: 65px;
+   width: 100%;
+   background-image: linear-gradient(to left, white, white);
+}
+#nav_bar{
+   /* height: 60px; */
+   width: 100%;
+   display: inline-flex;
+   justify-content: space-between;
+   margin-top: 1%;
+   border: 1ps solid transparent;
+
+ }
+ #left_box{
+   height: 50px;
+   width: 30%;
+   display: flex;
+   border: 1px solid transparent;
+   
+
+ }
+ #three_line-icon{
+     height: 40px;
+     margin: 1%;
+     width: 35px;
+     border: 1px solid transparent;
+     
+ }
+ #interthery_img_logo{
+   height: 45px;
+   margin: 1%;
+   width: 100px;
+   border: 1px solid transparent;
+   
+}
+#interthery_img_logo >a>img{
+   height: 40px;
+   width: 100px;	
+}
+
+
+ #right_box{
+   height: 50px;
+   width: 15%;
+   display: flex;
+   float: left;
+ }
+
+#right_box>div{
+   margin-left: 10%;
+}
+
+ #sgin{
+   /* background-color: rgb(216, 19, 19); */
+   background-color: rgb(223,30,46);
+   color: white;
+ height: 35px; 
+ width: 85px;
+   margin-bottom:10px;
+   border-radius: 6px;
+   border: none;
+   font-size: 17px;
+   font-weight: 100;
+   margin-top:-1px;
+   margin-left: 15px;
+  
+}
+#cart_img{
+   margin-top: 3%;
+}
+#sgin:hover{
+   cursor: pointer;
+   background-color: rgb(216, 19, 19);
+}
+
+*{
+    font-family: sans-serif;
+}
+
+
+#footer_container{
+    width: 100%;
+    height: 500px;
+    background-color: rgb(68,100,120);
+    /* padding:1px; */
+    /* margin-right: 5px; */
+    margin-left: 10px;
+  
+    
+}
+#footer_con{
+    display: flex;
+}
+#line_in_footer{
+    border: 0.5px solid white;
+
+
+}
+#footer_left{
+    margin-left: 100px;
+    margin-top: 70px;
+}
+
+#footer_midd{
+    margin-left: 230px;
+    margin-top: 70px;
+}
+
+#footer_right{
+    margin-left: 230px;
+    margin-top: 70px;
+}
+#footer_p{
+    color: aliceblue;
+}
+#footer_h{
+    color: aliceblue;
+
+}
+#footer_dis{
+    display: flex;
+  margin-top: 20px;
+
+}
+#footer_dis >p{
+   margin-left: 70px;
+   color: white;
+
+}
+#footer_in{
+    margin-left: 550px;
+    color: white;
+}
+.fa-brands{
+     margin-right: 20px;
+}
+ #icon{
+     margin-left: 130px;
+     margin-top: 100px;
+     color: white;
+     
+} 
+
+#side_bar>*{
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    box-sizing: border-box;
+}
+#side_bar{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-top: white;
+    position :fixed;
+    width: 300px;
+    height: 100%;
+    left: -320px;
+    top : 0;
+    transition: left 0.4s ease;
+    overflow: scroll;
+    overflow-x: hidden;
+    background-color: white;
+}
+.text{
+    /* border: 1px solid red; */
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 60px;
+    margin-top: 0px;
+}
+#ul-1,#ul-2,#ul-3{
+    list-style: none;
+    height: 100%;        
+}
+#side_bar>*>li{
+    line-height: 45px;    
+}
+#ul>li>a{
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    padding-left: 20px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#side_bar>ul :hover{
+    background-color: lightgrey;
+}
+#ul-1,#ul-2,#ul-3{
+    /* background-color: aqua; */
+    position: static;
+    display: none;
+}
+#ul-1,#ul-2,#ul-3>li{
+    /* background-color: aqua; */
+    line-height: 42px;     
+}
+#ul-1>li>a{
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    padding-left: 30px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#ul-2>li>a{
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    padding-left: 30px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+#ul-3>li>a{
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    padding-left: 30px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#side_bar>*>li>i{
+    margin: 0 15px 0 25px;
+}
+.text>i{
+    margin: 0 15px 0 25px;
+}
+#im{
+    width: 80px;
+    height: 40px;
+    margin-top: 15px;
+    margin-left: 20px;
+}
+#ul1,#ul2, #ul3{
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;   
+}
+
+ 
+
+
+    </style>
+</head>
+
+<body>
+
+    <div id="navBarBox">
+        <div id="nav_bar">
+            <div id="left_box">
+                <div id="three_line-icon"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M2 15.5v2h20v-2H2zm0-5v2h20v-2H2zm0-5v2h20v-2H2z"/></svg></a></div>
+                <div id="interthery_img_logo"><a href="#">
+                    <img src="https://assets.interntheory.com/creative/logo.png"></a>
+                </div>
+            </div>
+    
+            <div id="right_box">
+                <div id="cart_img">
+                    <a href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                    </a>
+                </div>
+                <div id="sign_in">
+                    <a href="student and company login.html">
+                    <button id="sgin">SIGN IN</button>
+                </a>
+                </div>
+            </div>
+        </div>
+        </div>
+
+         <!-- ---------------sidebar.html---------------------------- -->
+
+         <div id="sidebar_div" >
+            <div id="side_bar">
+                <div class="text"><i id="sliding2" class="fa-solid fa-bars"></i><img id="im" src="https://assets.interntheory.com/creative/logo.png" alt=""></div>
+                <ul id="ul" >
+                    <li><i class="fa-solid fa-house"></i></i><a href="index.html">Home</a></li>
+                    <li><i class="fa-solid fa-bars"></i><a href="internship.html">Internships</a></li>
+                    <li><i class="fa-solid fa-suitcase"></i><a href="jobs.html">Jobs</a></li>
+                    <li><i class="fa-solid fa-plus"></i><a href="">Post Internship</a></li>
+                    <li id="ul1"><i class="fa-solid fa-graduation-cap"></i>Courses<i class="fa-solid fa-caret-down"></i>
+                        <ul id="ul-1">
+                            <li><a href="onlinecourses.html">Online Courses</a></li>
+                            <li><a href="classTraining.html">Classroom Training</a></li>
+                        </ul>
+                    </li>
+                    <li><i class="fa-solid fa-phone"></i><a href="contract.html">Contact Us</a></li>
+                    <hr>
+                    <li id="ul2" ><i class="fa-solid fa-bars-staggered"></i>Register<i class="fa-solid fa-caret-down"></i>
+                        <ul id="ul-2">
+                            <li><a href="companyreg.html">Company</a></li>
+                            <li><a href="studentregs.html">Student</a></li>
+                        </ul>
+                    </li>
+                    <li id="ul3" ><i class="fa-solid fa-arrow-right-to-bracket"></i>Login<i class="fa-solid fa-caret-down"></i>
+                        <ul id="ul-3">
+                            <li><a href="student and company login.html">Company</a></li>
+                            <li><a href="student and company login.html">Student</a></li>
+                        </ul>
+                    </li>
+            
+                </ul>
+               </div>
+        </div>
+
+<!-- ----------------------------registration.html------------  -->
+
+
+    <main>
+        <div id="first-layer" class="border">
+            <div id="Second-layer">
+                <div class="scbtn">
+                    <div class="cscbtn" id="sbtn"><button onclick="student()">STUDENT</button></div>
+                    <div class="cscbtn" id="cbtn"><button onclick="company()">COMPANY</button></div>
+                </div>
+                <div id="api-part">
+                    <div id="heding">
+                        <h1>Login</h1>
+                    </div>
+                    <div id="inqury" class="border">
+                        <p class="pera">If you are a company looking to hire interns,please login as a company by clicking
+                            <span><a href="student and company login.html">here.</a></span></p>
+                    </div>
+                    <div id="api-option">
+                        <div id="fb">
+                            <i class="fab fa-facebook-square"></i>
+                            <button><a class="sfb" href="https://www.facebook.com/">SIGNIN WITH FACEBOOK</a></button>
+                        </div>
+                        <div id="gl">
+                            <i class="fab fa-google"></i>
+                            <button><a class="gfb" href="https://www.google.com/">SIGNIN WITH GOOGLE</a></button>
+                        </div>
+                    </div>
+                    <div>
+                        <P id="lineOr">OR</P>
+                    </div>
+                </div>
+                <!-- firstname lastname email password-->
+                <div id="register-part">
+                    <form action="" class="form" method="">
+                        <span class="notvalid">Required</span><span class="notvalid" id="secspan">Required</span>
+                        <div class="email labels-name ">
+                            <input type="text" id="email" placeholder="Enter Email" class="lable" name ="email"required>
+                            <span class="lable-content">Email/Number*</span>
+                        </div><span class="notvalid">Required</span>
+
+                        <div class="password labels-name">
+                            <input type="password" id="password" placeholder="Enter Password" name="password" class="lable" required>
+                            <span class="lable-content">Password*</span>
+                        </div><span class="notvalid">Required</span>
+
+                        <div class="check ">
+                            <div class="checkbox"><input type="checkbox" id="checkboxid">
+                                <label for="checkboxid"> Remember Me</label> <span id="forgot"><a href="#"
+                                        target="_blank">Forgot password</a></span>
+                            </div>
+                            <div class="creatA">
+                                <p>Don't have an account? &nbsp;<a href="studentregs.html">Create Your
+                                        Account</a></p>
+                            </div>
+
+                        </div>
+                        <div class="btn">
+                            <button type="submit"><span>Next</span></button>
+                        </div>
+                    </form>
+
+                    <form action="/login" class="form1" method="POST">
+                        <span class="notvalid">Required</span><span class="notvalid" id="secspan">Required</span>
+                        <div class="email labels-name ">
+                            <input type="text" id="email1" placeholder="Enter Email"  name="email" class="lable" required>
+                            <span class="lable-content">Email/Number*</span>
+                        </div><span class="notvalid">Required</span>
+
+                        <div class="password labels-name">
+                            <input type="password" id="password1" name="password" placeholder="Enter Password" class="lable" required>
+                            <span class="lable-content">Password*</span>
+                        </div><span class="notvalid">Required</span>
+
+                        <div class="check ">
+                            <div class="checkbox"><input type="checkbox" id="checkboxid">
+                                <label for="checkboxid"> Remember Me</label> <span id="forgot"><a href="#"
+                                        target="_blank">Forgot password</a></span>
+                            </div>
+                            <div class="creatA">
+                                <p>Don't have an account? &nbsp;<a href="studentregs.html">Create Your
+                                        Account</a></p>
+                            </div>
+
+                        </div>
+                        <div class="btn">
+                            <button type="submit"><span>Next</span></button>
+                        </div>
+                    </form>
+
+                    <form action="/login" class="form2" method="POST ">
+                        <span class="notvalid">Required</span><span class="notvalid" id="secspan">Required</span>
+                        <div class="email labels-name ">
+                            <input type="text" id="email2" placeholder="Enter Email" name="email" class="lable" required>
+                            <span class="lable-content">Email/Number*</span>
+                        </div><span class="notvalid">Required</span>
+
+                        <div class="password labels-name">
+                            <input type="password" id="password2" placeholder="Enter Password" name="password" class="lable" required>
+                            <span class="lable-content">Password*</span>
+                        </div><span class="notvalid">Required</span>
+
+                        <div class="check ">
+                            <div class="checkbox"><input type="checkbox" id="checkboxid">
+                                <label for="checkboxid"> Remember Me</label> <span id="forgot"><a href="#">Forgot password</a></span>
+                            </div>
+                            <div class="creatA">
+                                <p>Don't have an account?<a href="studentregs.html">Create Your
+                                        Account</a></p>
+                            </div>
+
+                        </div>
+                        <div class="btn">
+                            <button type="submit"><span>Next</span></button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <br>
+    <br>
+    <div id="footer_container">
+        <div id="footer_con">
+            <div id="icon">
+                <p><i class="fa-brands fa-facebook-square"></i></p>
+                <p><i class="fa-brands fa-linkedin"></i></p>
+                <p><i class="fa-brands fa-twitter-square"></i></p>
+                <p> <i class="fa-brands fa-instagram"></i></p>
+            </div>
+        
+            
+            <div id="footer_left">
+                   <h3 id="footer_h">BY PLACE</h3>
+                   <div id="line_in_footer"></div>
+                   <br>
+                    <p id="footer_p">  Internships In Mumbai</p>
+                    <br>
+                   <p id="footer_p">   Internships In Delhi</p>
+                   <br>
+                   <p id="footer_p">  Internships In Bangalore</p>
+                   <br>
+                   <p id="footer_p">  Internships In Hyderabad</p>
+                   <br>
+                    
+            </div>
+        
+            <div id="footer_midd">
+                <h3 id="footer_h">BY PROFILE</h3>
+                <div id="line_in_footer"></div>
+                <br>
+                <p id="footer_p">Marketing Internships</p>
+                <br>
+                <p id="footer_p">Business Development Internships</p>
+                <br>
+                <p id="footer_p">Content Writing Internships</p>
+                <br>
+                <p id="footer_p">Graphic Designing Internships</p>
+                <br>
+                <p id="footer_p">HR Internships</p>
+                <br>
+                <p id="footer_p">Engineering Internships</p>
+                <br>
+            </div>
+        
+            <div id="footer_right">
+                <h3 id="footer_h">BY TYPE</h3>
+                <div id="line_in_footer"></div>
+                <br>
+                <p id="footer_p">Full Time Internships</p>
+                <br>
+                <p id="footer_p">Part Time Internships</p>
+                <br>
+                <p id="footer_p">Work From Home Internships</p>
+                <br>
+        
+            </div>
+        </div>
+        
+        <div id="footer_last">
+            <div id="footer_dis">
+                <p>REFUND & CANCELLATION POLICY</p>
+                <p>COURSES</p>
+                <p>TERMS AND CONDITIONS</p>
+                <p>PRIVACY POLICY</p>
+                <p>CONTACT US</p>
+                <p>ABOUT US</p>
+                <p>SITEMAP</p>
+            </div>
+            <div id="line_in_footer"></div>
+            <br>
+            <p id="footer_in">© 2015 - 2022 INTERNTHEORY. ALL RIGHTS RESERVED.</p>
+        </div>
+        
+    </div>
+</body>
+
+</html>
+<script src="student and company login.js"></script>

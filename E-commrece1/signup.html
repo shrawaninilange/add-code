@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          
+
+    </style>
+</head>
+<body>
+    <form> 
+   <p>Name :</p> <input class="name"  type="text" placeholder="Enter name"><br>
+   <p>mob :</p> <input id="mob" type="number" placeholder="Enter mob"><br>
+    <p>username :</p><input id="user" type="text" placeholder="enter username"><br>
+    <p>pass : </p><input id="pass" type="Password" placeholder="Enter pass"><br>
+    <p>submit</p><input type="submit" value="Signup"><br>
+</form>
+ 
+</body>
+</html>
+
+
+<script>
+    document.querySelector("form").addEventListener("submit",formsubmit)
+
+    var userstack=  [];
+
+    function formsubmit(event){
+        event.preventDefault();
+     var email =document.querySelector(".name").value;
+     var mob =document.querySelector("#mob").value;
+     var username=document.querySelector("#user").value;
+     var Password=document.querySelector("#pass").value;
+    //  var sumbit=document.querySelector("submit").value;
+    console.log("xys")
+
+     var userData = {
+      emailAdd: email,
+      mblNum: mob,
+      userName: username,
+      passwd: Password,
+       
+    };
+
+    userstack.push(userData)
+    console.log(userstack)
+
+    localStorage.setItem("userBase", JSON.stringify(userstack));
+      alert("signup success");
+    window.location.href = "login.html";
+
+    
+    }
+    
+</script>

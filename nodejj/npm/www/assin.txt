@@ -1,0 +1,104 @@
+ db
+test
+> switched to db user
+uncaught exception: SyntaxError: unexpected token: identifier :
+@(shell):1:9
+> use user
+switched to db user
+> db
+user
+> db.createCollection("users")
+{ "ok" : 1 }
+> db.users.insert({first_name : "shrawani"})
+WriteResult({ "nInserted" : 1 })
+
+ db.users.insertMany([{first_name: "rahul"} ,{first_name : "shrawani" } ])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("6228a2ce9bc116a9cc3d04a9"),
+                ObjectId("6228a2ce9bc116a9cc3d04aa")
+        ]
+}
+> db.users.insert({"age": 5})
+WriteResult({ "nInserted" : 1 })
+> db.users.insertMany({"age": 4})
+uncaught exception: TypeError: documents.map is not a function :
+DBCollection.prototype.insertMany@src/mongo/shell/crud_api.js:307:17
+@(shell):1:1
+> db.users.find({})
+{ "_id" : ObjectId("6228a1c69bc116a9cc3d04a8"), "first_name" : "shrawani" }
+{ "_id" : ObjectId("6228a2ce9bc116a9cc3d04a9"), "first_name" : "rahul" }
+{ "_id" : ObjectId("6228a2ce9bc116a9cc3d04aa"), "first_name" : "shrawani" }
+{ "_id" : ObjectId("6228a31d9bc116a9cc3d04ab"), "age" : 5 }
+> db.users.update({"first_name": "shrawani" },{"age": 9})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.users.find({})
+{ "_id" : ObjectId("6228a1c69bc116a9cc3d04a8"), "age" : 9 }
+{ "_id" : ObjectId("6228a2ce9bc116a9cc3d04a9"), "first_name" : "rahul" }
+{ "_id" : ObjectId("6228a2ce9bc116a9cc3d04aa"), "first_name" : "shrawani" }
+{ "_id" : ObjectId("6228a31d9bc116a9cc3d04ab"), "age" : 5 }
+> db.user.update({first_name : "shrawani" } ,{$set : {"age" : 4}})
+WriteResult({ "nMatched" : 0, "nUpserted" : 0, "nModified" : 0 })
+>
+
+ db.users.insertMany([{first_name : "kartik" } ,{first_name : "mitali" } ])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("6228a5149bc116a9cc3d04ac"),
+                ObjectId("6228a5149bc116a9cc3d04ad")
+        ]
+}
+>
+
+ db.users.updateMany({first_name : "rahul"} ,{$set: {"age": 43}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+
+
+db.users.update({first_name:"mitali"},{$set : {"age" :90}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.users.update({first_name : "mitali" }, {$set : { last :" nilange"}},{$set:{email :"nil@gamilcom"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+>
+
+> db.user.update({"first_name" : "rahul" } ,{$set : {"gender " :" male"}})
+WriteResult({ "nMatched" : 0, "nUpserted" : 0, "nModified" : 0 })
+> db.user.update({first_name : "kartik" } , {$set : { "age" : 77 }}, {$set : {"gender" : "male"}})
+WriteResult({ "nMatched" : 0, "nUpserted" : 0, "nModified" : 0 })
+> db.users.update({ first_name : "rahul" },{$set :{"gender" : "male" }} ,{$set : { "last" :" modi"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.users.update({first_name : "rahul"} , {$set : {"gmail" : "ss.nil@gmail.com"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.users.find({})
+
+ db.users.update({first_name : "shrawani" }, {$set : {"age": 33}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.users.find({})
+
+
+
+
+
+aught exception: TypeError: db.users.uudate is not a function :
+@(shell):1:1
+> db.users.update({"age" :9 } ,{$set ": {"first_name" : "neela"}})
+uncaught exception: SyntaxError: missing : after property id :
+@(shell):1:35
+> db.users.update({"age":9 } ,{$set : {"first_name" : "meema"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.users.update({ "age" :9 }, {$set : {"last" : "nil" }} , {$set : {"gmail" : "s.hhh@gamil.com" }})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.users.update({"age" : 5 } , { $set : {"gender" : "male" }},{$set  : {"last" : "hhh"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.user.find({})
+> db.users.find({})
+{ "_id" : ObjectId("6228a1c69bc116a9cc3d04a8"), "age" : 9, "first_name" : "meema", "last" : "nil" }
+{ "_id" : ObjectId("6228a2ce9bc116a9cc3d04a9"), "first_name" : "rahul", "age" : 43, "gender" : "male", "gmail" : "ss.nil@gmail.com" }
+{ "_id" : ObjectId("6228a2ce9bc116a9cc3d04aa"), "first_name" : "shrawani", "age" : 33 }
+{ "_id" : ObjectId("6228a31d9bc116a9cc3d04ab"), "age" : 5, "gender" : "male" }
+{ "_id" : ObjectId("6228a5149bc116a9cc3d04ac"), "first_name" : "kartik" }
+{ "_id" : ObjectId("6228a5149bc116a9cc3d04ad"), "first_name" : "mitali", "age" : 90, "last" : " nilange" }
+> db.users.update({ "age" :9 } ,{$set : { "gender"  : "male" }},{$set : {"email" : "hhh@gmail.com"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            display: grid;
+            width: 80%;
+            
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 500px);
+            gap: 20px;
+            margin: auto;
+            position: fixed;
+            
+        }
+        
+.nav{
+    display: flex;
+    background-color: rgb(28, 41, 56);
+    color:white;
+    height: 50px;
+    padding: 25px 0 0 20px;
+    border-radius: 15px;
+    margin-top: 40px;
+     
+
+} 
+.right{
+    display: flex;
+    width: 35%;
+    justify-content: space-between;
+    /* border: 1px solid red; */
+
+}
+.left{
+    width: 65%;
+}
+select{
+    background-color: rgb(28, 41, 56);
+    color: white;
+}
+
+</style>
+    
+</head>
+<body>
+    <DIV class="nav">
+        <div class="left">myntra</div>
+        <div class="right">
+           <div onclick="window.location.href='men.html'">Mens page</div>
+           <div>Womens page</div>
+           <div onclick="window.location.href='signup.html'">Sign up</div>
+           <div> 
+               <select>
+                   <option value=" me">try</option>
+                   <option value=" mee">page</option>
+               </select>
+           </div>
+          
+          </div>
+   
+           
+   
+           
+   
+           </div>
+   
+       </DIV>
+    <h1>men</h1>
+      <button onclick="window.location.href='cart.html'"">go</button>
+     <div id="container">
+         
+     </div>
+     
+
+</body>
+</html>
+
+<script>
+//     var data = [
+//     {
+//         imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi1.jpg.pagespeed.ic.mkSk-Af1ka.webp",
+//         name:"LATEST MENS SNEAKER",
+//         price:"25.00",
+//         strikedOffPrice:"$95.00"
+//     },{
+//         imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi2.jpg.pagespeed.ic.uBrpABaJqp.webp",
+//         name:"LATEST MENS SNEAKER",
+//         price:"35.00",
+//         strikedOffPrice:"$100.00"
+//     },{
+//         imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi3.jpg.pagespeed.ic.iO_cFEPy2K.webp",
+//         name:"LATEST MENS SNEAKER",
+//         price:"35.00",
+//         strikedOffPrice:"$100.00"
+//     },
+//     {
+//         imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi4.jpg.pagespeed.ic.kmiQW8I5wx.webp",
+//         name:"LATEST MENS SNEAKER",
+//         price:"35.00",
+//         strikedOffPrice:"$100.00"
+//     },
+
+    
+// ]
+  
+
+// data.map(function(ele){
+//     var div=document.createElement("div")
+
+//     var imgg = document.createElement("img")
+//     imgg.setAttribute("src",ele.imgUrl)
+    
+//     var name =document.createElement("h3")
+//     name.textContent=ele.name
+
+//     var price= document.createElement("h3")
+//     price.textContent=ele.price
+
+//     var s =document.createElement("h4")
+//     s.textContent=ele.strikedOffPrice
+   
+
+//     var btn = document.createElement("button")
+//     btn.textContent="add to cart"
+//     btn.addEventListener("click",function(){
+//         AlltoCart(data)
+//     })
+    
+//     div.append(imgg,name,price,s,btn)
+//     document.querySelector("#container").append(div)
+    
+
+    
+//     div.append(imgg,name,price,s,btn)
+//     document.querySelector("#container").append(div)
+//     localStorage.setItem("datada", JSON.stringify(data))
+   
+// })
+
+//  var cartarr=JSON.parse(localStorage.getItem("cartgg")) || []
+
+// function AlltoCart(data){
+//     console.log(data)
+//     cartarr.push(data)
+//     localStorage.setItem("cartgg",JSON.stringify(data))
+//     alert("dbvgd")
+
+// }
+// </script>
