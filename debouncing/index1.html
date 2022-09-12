@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body{
+    margin: auto;
+     text-align: center; 
+    background-image: url("https://st.depositphotos.com/1026550/4380/i/600/depositphotos_43807431-stock-photo-halloween.jpg") ;
+    background-size:cover ;
+} 
+#container{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 50px;
+    padding-left: 40px;
+    padding-right: 40px;
+
+  
+}
+
+h1{
+    text-align: center;
+    font-family: 'Bangers', cursive;
+    font-size: 70px;
+    margin-left: -130px;
+}
+input{
+    width: 40%;
+    height: 30px;
+    font-size: x-large;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.btn{
+    width: 5%;
+    height: 30px;
+    margin-left: 10px;
+}
+#movies {
+    /* display: none; */
+    /* text-shadow: 2px 2px rgb(243, 237, 243); */
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin: auto;
+    height: 200px;
+    width: 40%;
+    border: solid 1px rgb(228, 215, 215);
+    overflow: scroll;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    padding: 20px;
+    
+
+  }
+  #movies::-webkit-scrollbar{
+
+    display: none;
+
+  }
+  .name{
+      font-weight: bold;
+      margin-left: 30%;
+      margin-right: 30%;
+      width: 40%;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 0px;
+  }
+  #pick{
+      margin-left: 40px;
+  }
+  .error{
+
+    height: 300px;
+    margin-left:-90px;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 15px;
+    border:  1px solid white;
+
+}
+#letter{
+    margin-top: -70px;
+    width: 100%;
+    height: auto;
+    color: white;
+    margin-left: 310px; 
+    font-size: 40px; 
+    font-weight:bolder;
+}
+#new{
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+ }
+ #new1{
+     color: white;
+    text-align: center;
+    margin-top: -10px;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+ }
+
+
+#moive{
+    border-radius: 20px;
+    width: 90%;
+    height: 400px;
+    box-shadow: rgba(247, 244, 244, 0.25) 0px 54px 55px, rgb(128, 124, 124) 0px -12px 30px, rgb(117, 114, 114) 0px 4px 6px, rgb(141, 135, 135) 0px 12px 13px, rgb(117, 111, 111) 0px -3px 5px;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <h1 id="pick" style="color: red; text-align: center;"  >Movie katta</h1>
+    <input oninput="debounce(main,2000)" style="height: 40px; border-radius: 10px; border: 1px solid black;" type="text" id="query" name="mySearch">
+    <button class="btn" style="height: 30px; font-weight: bold;font-family:cursive; width: 100px;border-radius: 5px;border: 1px solid black; margin-left: 40px;"  id="btn1" onclick="searchMovie()">Search</button>
+    <div id="movies"></div>
+    <div id="container1"></div>
+    <div id="container"></div>
+   
+</body>
+</html>
+<script>
+    async function searchMovie(){
+    try {
+    let movie=document.getElementById("query").value
+
+    let res= await fetch(`https://www.omdbapi.com/?apikey=d806bd70&s=${movie}`)
+    let data=await res.json()
+     console.log(data)
+    return data.Search
+
+    }catch(err){
+        console.log(err)
+        showError(err)
+    }
+}
+
+async function main(){
+    let data = await searchMovie()
+    console.log(data.Error)
+     if(data===undefined){
+        //  return false
+        //  showError(err)
+     }
+     appendData(data)
+    // console.log(data)
+}
+let container1 ;
+function showError(err){
+container1.document.getElementById("container1")
+    let letter=document.createElement("p")
+    letter.innerText=`${filmName}Movie Not Found`
+    letter.setAttribute("id","letter")
+    let post=document.createElement("img")
+        post.src="https://i.gifer.com/origin/70/7083035f8f4625a01ac3f72ffabe7b3b_w200.gif"
+        post.setAttribute("class","error")
+        container1.append(letter,post)
+     
+    
+    }
+ 
+ 
+    let moviesDiv=document.getElementById("movies")
+function appendData(movies){
+    moviesDiv.innerHTML=""
+    movies.forEach(function(el){
+        let div = document.createElement('div')
+        let name=document.createElement("button")
+     
+        name.innerHTML=el.Title
+        name.setAttribute("class","name")
+        name.addEventListener("click",function(){
+            displaydata(el)
+        })
+        div.append(name)
+        moviesDiv.append(name)
+    })
+}
+
+let timeId ;
+
+function debounce(func,delay){
+
+    if (timeId){
+        clearTimeout(timeId)
+    }
+    
+    timeId = setTimeout(function(){
+        func()
+    },delay)
+
+    
+}
+
+function displaydata(el){
+
+       let div=document.createElement("div")
+
+        let poster=document.createElement("img")
+        poster.src=el.Poster
+        poster.setAttribute("id","moive")
+
+        let p=document.createElement("h2")
+        p.innerText=el.Title
+        p.setAttribute("id","new")
+
+        let year=document.createElement("p")
+        year.innerText=el.Year
+        year.setAttribute("id","new1")
+
+        div.append(poster,p,year);
+
+        container.append(div)
+
+
+}
+
+
+
+
+</script>
